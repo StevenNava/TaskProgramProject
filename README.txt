@@ -18,3 +18,5 @@ Hover over the 'Add Tasks' menu button. The 'Add Tasks' menu will appear. Enter 
 // To Remove Tasks //
 
 Hover over the 'Remove Tasks' menu button. The 'Remove Tasks' menu will appear. Enter all task information that you have and click search. Any tasks matching the required information will populate into a drop-down menu and the task to be removed will need to be selected. Once selected, click remove. Confirm that this is the task that you would like to remove and click OK on the confirmation popup.
+
+// To Search Tasks//
