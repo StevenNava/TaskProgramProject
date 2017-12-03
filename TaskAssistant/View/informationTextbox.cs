@@ -4,16 +4,15 @@
     using System.Windows.Forms;
 
     internal class informationTextbox : RichTextBox
-
     {
         internal informationTextbox(string textboxName, int textboxLocationX, int textboxLocationY)
         {
-            this.BorderStyle = BorderStyle.FixedSingle;
-            this.BackColor = Color.White;
-            this.Location = new Point(textboxLocationX, textboxLocationY);
-            this.Name = textboxName;
-            this.Size = new Size(332, 31);
-            this.Text = "";
+            BorderStyle = BorderStyle.FixedSingle;
+            BackColor = Color.White;
+            Location = new Point(textboxLocationX, textboxLocationY);
+            Name = textboxName;
+            Size = new Size(332, 31);
+            Text = "";
         }
     }
 }

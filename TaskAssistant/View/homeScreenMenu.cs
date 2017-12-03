@@ -6,8 +6,8 @@
     internal class homeScreenMenu : Panel
     {
         statisticPanel menuStatisticPanel;
-        internal confirmationButton menuCancelButton;
-        internal confirmationButton menuSubmitButton;
+        internal ConfirmationButton menuCancelButton;
+        internal ConfirmationButton menuSubmitButton;
 
         internal homeScreenMenu(int panelLocationX, int panelLocationY, int panelSizeWidth, int panelSizeHeight)
         {
@@ -17,8 +17,8 @@
             this.Location = new Point(panelLocationX, panelLocationY);
             this.Size = new Size(panelSizeWidth, panelSizeHeight);
             menuStatisticPanel = new statisticPanel(this.BackColor, this.Size.Width - 200, 0, 200, this.Size.Height);
-            menuCancelButton = new confirmationButton("menuForm", "Cancel", this.Size.Width - 500, this.Size.Height - 50);
-            menuSubmitButton = new confirmationButton("menuForm", "Submit", menuCancelButton.Location.X + 150, menuCancelButton.Location.Y);
+            menuCancelButton = new ConfirmationButton("menuForm", "Cancel", this.Size.Width - 500, this.Size.Height - 50);
+            menuSubmitButton = new ConfirmationButton("menuForm", "Submit", menuCancelButton.Location.X + 150, menuCancelButton.Location.Y);
             this.Controls.Add(menuStatisticPanel);
             this.Controls.Add(menuCancelButton);
             this.Controls.Add(menuSubmitButton);
