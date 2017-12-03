@@ -5,7 +5,7 @@
 
     internal class homeScreenMenu : Panel
     {
-        statisticPanel menuStatisticPanel;
+        internal statisticPanel menuStatisticPanel;
         internal ConfirmationButton menuCancelButton;
         internal ConfirmationButton menuSubmitButton;
 

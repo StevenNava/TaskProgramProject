@@ -12,7 +12,15 @@
             Location = new Point(textboxLocationX, textboxLocationY);
             Name = textboxName;
             Size = new Size(332, 31);
-            Text = "";
+        }
+
+        internal informationTextbox(string textboxName, int textboxLocationX, int textboxLocationY, int dropDownSizeWidth, int dropDownSizeHeight)
+        {
+            BorderStyle = BorderStyle.FixedSingle;
+            BackColor = Color.White;
+            Location = new Point(textboxLocationX, textboxLocationY);
+            Name = textboxName;
+            Size = new Size(dropDownSizeWidth, dropDownSizeHeight);
         }
     }
 }

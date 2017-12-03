@@ -89,6 +89,9 @@
     <Compile Include="View\AlertExclamationImage.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\removeTaskDropdown.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="View\statisticPanel.cs">
       <SubType>Component</SubType>
     </Compile>

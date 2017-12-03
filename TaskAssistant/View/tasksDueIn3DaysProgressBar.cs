@@ -17,7 +17,21 @@
             this.Size = new Size(progressBarSizeDiameter, progressBarSizeDiameter);
             this.Location = new Point(progressBarLocationX, progressBarLocationY);
             this.Paint += new PaintEventHandler(tasksDueIn3DaysProgressBar_Load);
-            tasksDueIn3DaysLabel = new menuLabel("tasksDueIn3Days", "Tasks Due In 3 Days", 12, 10, progressBarSizeDiameter - 30);
+            tasksDueIn3DaysLabel = new menuLabel("tasksDueIn3Days", "Tasks Due In 3 Days", 12, progressBarSizeDiameter / 25, progressBarSizeDiameter - 30);
+            this.Controls.Add(tasksDueIn3DaysLabel);
+        }
+
+        internal tasksDueIn3DaysProgressBar(double totalTasksDue, double tasksDueIn3Days, int progressBarLocationX, int progressBarLocationY, int progressBarSizeDiameter, Color fontColor, string numDays)
+        {
+            this.Name = "tasksDueIn3DaysProgressBar";
+            this.totalTasksDue = (int)totalTasksDue;
+            this.tasksDueIn3Days = (int)tasksDueIn3Days;
+            progress = (int)(100 * (tasksDueIn3Days / totalTasksDue));
+            this.Size = new Size(progressBarSizeDiameter, progressBarSizeDiameter);
+            this.Location = new Point(progressBarLocationX, progressBarLocationY);
+            this.Paint += new PaintEventHandler(tasksDueIn3DaysProgressBar_Load);
+            tasksDueIn3DaysLabel = new menuLabel("tasksDueIn3Days", "Tasks Due In " + numDays + " Days", 14, progressBarSizeDiameter / 18, progressBarSizeDiameter - 30);
+            tasksDueIn3DaysLabel.ForeColor = fontColor;
             this.Controls.Add(tasksDueIn3DaysLabel);
         }
 

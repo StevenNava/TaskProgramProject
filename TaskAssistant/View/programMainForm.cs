@@ -4,6 +4,7 @@
     using System.Windows.Forms;
     using System.Drawing;
     using System.Data.SqlClient;
+    using System.Collections.Generic;
 
     internal class programMainForm : Form
     {
@@ -13,6 +14,9 @@
         homeScreenMenuButton searchButton;
         homeScreenMenuButton reportsButton;
         homeScreenMenuButton settingsButton;
+        private menuLabel AtAGlance;
+        private tasksDueIn3DaysProgressBar FrontPageTasksDueIn3DaysProgressBar;
+        private tasksDueIn3DaysProgressBar FrontPageTasksDueIn7DaysProgressBar;
         titleBarPanel titleBar;
         verticalPanel menuBar;
         titleLabelFirstHalf firstHalfTitleLabel;
@@ -49,10 +53,28 @@
         //Remove Task Menu Items
         homeScreenMenu removeMenu;
         menuLabel removeTaskTitle;
+        private menuLabel removeTaskName;
+        private menuLabel removeTaskStartDateTimeLabel;
+        private menuLabel removeTaskEndDateTimeLabel;
+        informationTextbox removeTaskNameTextbox;
+        private menuDateTimePicker removeTaskStartDateTime;
+        private menuDateTimePicker removeTaskEndDateTime;
+        private ConfirmationButton removeSearchButton;
+        private removeTaskDropdown removeTaskNameDropDown;
+        private menuLabel removeTaskChooseTaskLabel;
 
         //Search Task Menu Items
         homeScreenMenu searchMenu;
         menuLabel searchTasksTitle;
+        private menuLabel searchTaskStartDateTimeLabel;
+        private menuLabel searchTaskEndDateTimeLabel;
+        private menuDateTimePicker searchTaskStartDateTime;
+        private menuDateTimePicker searchTaskEndDateTime;
+        private removeTaskDropdown searchTaskNameDropdown;
+        private informationTextbox searchTaskDescriptionBox;
+        private ConfirmationButton searchTaskSearchButton;
+        private menuLabel searchTaskChooseTaskLabel;
+        private menuLabel searchTaskDescription;
 
         //Reports Menu Items
         readonly homeScreenMenu reportsMenu;
@@ -114,6 +136,11 @@
             exit = new ControlBarButton("exit", controlBar.Size.Width - 20, 0, "X", ContentAlignment.BottomCenter);
             minimize = new ControlBarButton("minimize", exit.Location.X - exit.Size.Width - 2, 0, "_");
 
+            createHomePageProgressBars();
+
+            AtAGlance = new menuLabel("AtAGlanceLabel", "At A Glance", Size.Width / 14 * 8, Size.Height / 8);
+            AtAGlance.ForeColor = SystemColors.ControlDarkDark;
+
             addMenu = new homeScreenMenu(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
                 this.Size.Width - addButton.Size.Width, menuBar.Size.Height);
 
@@ -156,16 +183,45 @@
                 new AlertExclamationImage(addTaskDescriptionAlert.Location.X, addTaskDueDateTime.Location.Y);
             alertConfirmation = new ConfirmationForm("addMenuAlertConfirmation");
             dateTimealertConfirmation = new ConfirmationForm("dateTimeConfirmation");
-
+            
             removeMenu = new homeScreenMenu(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
                 titleBar.Size.Width - addButton.Size.Width, menuBar.Size.Height);
 
             removeTaskTitle = new menuLabel("removeTaskTitle", "Remove Task", 270, 18);
+            removeTaskName = new menuLabel("removeTaskName", "Name", 40, 74);
+            removeTaskStartDateTimeLabel = new menuLabel("removeStartDateTimeLabel", "Search Start", removeTaskName.Location.X,
+                removeTaskName.Location.Y + 80);
+            removeTaskEndDateTimeLabel = new menuLabel("removeEndDateTimeLabel", "Search End", removeTaskStartDateTimeLabel.Location.X,
+                removeTaskStartDateTimeLabel.Location.Y + 80);
+            removeTaskChooseTaskLabel = new menuLabel("removeChooseTaskLabel", "Choose Task", removeTaskEndDateTimeLabel.Location.X,
+                removeTaskEndDateTimeLabel.Location.Y + 80);
+
+            removeTaskNameTextbox = new informationTextbox("removeTaskNameTextbox", 200, 71);
+            removeTaskStartDateTime = new menuDateTimePicker("removeTaskStartDateTime", removeTaskNameTextbox.Location.X,
+                removeTaskNameTextbox.Location.Y + 80);
+            removeTaskEndDateTime = new menuDateTimePicker("removeaskEndDateTime", removeTaskStartDateTime.Location.X,
+                removeTaskStartDateTime.Location.Y + 80);
+            removeTaskNameDropDown = new removeTaskDropdown("removeTaskDropdown", removeTaskEndDateTime.Location.X,
+                removeTaskEndDateTime.Location.Y + 80);
+            removeSearchButton = new ConfirmationButton("menuForm", "Search", removeTaskNameDropDown.Location.X + removeTaskNameDropDown.Width / 3, removeTaskNameDropDown.Location.Y + 60);
 
             searchMenu = new homeScreenMenu(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
                 titleBar.Size.Width - addButton.Size.Width, menuBar.Size.Height);
 
             searchTasksTitle = new menuLabel("searchTaskTitle", "Search Task", 270, 18);
+            searchTaskStartDateTimeLabel = new menuLabel("searchTaskStartDateTime", "Search Start", 40, 74);
+            searchTaskEndDateTimeLabel = new menuLabel("searchTaskEndDateTime", "Search End",
+                searchTaskStartDateTimeLabel.Location.X, searchTaskStartDateTimeLabel.Location.Y + 80);
+            searchTaskChooseTaskLabel = new menuLabel("searchChooseTaskLabel", "Choose Task", searchTaskEndDateTimeLabel.Location.X,
+                searchTaskEndDateTimeLabel.Location.Y + 80);
+            searchTaskDescription = new menuLabel("searchTaskDescription", "Description", searchTaskChooseTaskLabel.Location.X, searchTaskChooseTaskLabel.Location.Y + 80);
+            searchTaskStartDateTime = new menuDateTimePicker("searchTasksStartDateTime", 200, 71);
+            searchTaskEndDateTime = new menuDateTimePicker("searchTasksEndDateTime", searchTaskStartDateTime.Location.X,
+                searchTaskStartDateTime.Location.Y + 80);
+            searchTaskNameDropdown = new removeTaskDropdown("searchTaskDropdown", searchTaskEndDateTime.Location.X,
+                searchTaskEndDateTime.Location.Y + 80);
+            searchTaskDescriptionBox = new informationTextbox("searchTaskDescriptionTextbox", searchTaskNameDropdown.Location.X, searchTaskNameDropdown.Location.Y + 80, searchTaskNameDropdown.Size.Width, searchTaskNameDropdown.Size.Height * 4);
+            searchTaskSearchButton = new ConfirmationButton("menuForm", "Search", searchTaskDescriptionBox.Location.X + searchTaskDescriptionBox.Width / 3, searchTaskDescriptionBox.Location.Y  + (searchTaskNameDropdown.Size.Height * 2) + 60);
 
             reportsMenu = new homeScreenMenu(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
                 titleBar.Size.Width - addButton.Size.Width, menuBar.Size.Height);
@@ -199,6 +255,10 @@
             addTaskPriority3.CheckedChanged += AddTaskPriority3_CheckedChanged;
             addTaskPriority4.CheckedChanged += AddTaskPriority4_CheckedChanged;
             addTaskPriority5.CheckedChanged += AddTaskPriority5_CheckedChanged;
+
+            removeSearchButton.Click += RemoveSearchButton_Click;
+            searchTaskSearchButton.Click += SearchTaskSearchButton_Click;
+            searchTaskNameDropdown.SelectedIndexChanged += SearchTaskNameDropdown_SelectedIndexChanged;
 
             exit.Click += Exit_Click;
             minimize.Click += Minimize_Click;
@@ -241,9 +301,27 @@
             addMenu.Hide();
 
             removeMenu.Controls.Add(removeTaskTitle);
+            removeMenu.Controls.Add(removeTaskName);
+            removeMenu.Controls.Add(removeTaskStartDateTimeLabel);
+            removeMenu.Controls.Add(removeTaskEndDateTimeLabel);
+            removeMenu.Controls.Add(removeTaskNameTextbox);
+            removeMenu.Controls.Add(removeTaskStartDateTime);
+            removeMenu.Controls.Add(removeTaskEndDateTime);
+            removeMenu.Controls.Add(removeSearchButton);
+            removeMenu.Controls.Add(removeTaskNameDropDown);
+            removeMenu.Controls.Add(removeTaskChooseTaskLabel);
             removeMenu.Hide();
 
             searchMenu.Controls.Add(searchTasksTitle);
+            searchMenu.Controls.Add(searchTaskStartDateTimeLabel);
+            searchMenu.Controls.Add(searchTaskEndDateTimeLabel);
+            searchMenu.Controls.Add(searchTaskStartDateTime);
+            searchMenu.Controls.Add(searchTaskEndDateTime);
+            searchMenu.Controls.Add(searchTaskDescriptionBox);
+            searchMenu.Controls.Add(searchTaskNameDropdown);
+            searchMenu.Controls.Add(searchTaskSearchButton);
+            searchMenu.Controls.Add(searchTaskChooseTaskLabel);
+            searchMenu.Controls.Add(searchTaskDescription);
             searchMenu.Hide();
 
             reportsMenu.Controls.Add(reportsTitle);
@@ -263,12 +341,172 @@
             Controls.Add(searchMenu);
             Controls.Add(reportsMenu);
             Controls.Add(settingsMenu);
+            Controls.Add(AtAGlance);
+            Controls.Add(FrontPageTasksDueIn3DaysProgressBar);
+            Controls.Add(FrontPageTasksDueIn7DaysProgressBar);
 
+        }
+
+        private void createHomePageProgressBars()
+        {
+            string fetchTotalTasks =
+                "SELECT COUNT(*) FROM dbo.Tasks";
+
+            String fetchTotalCompletedTasks =
+                "SELECT COUNT(*) FROM dbo.Tasks WHERE Completed = @completedTasks";
+
+            String fetchTasksDueInXDays =
+                "SELECT COUNT(*) FROM dbo.Tasks WHERE Task_Due_Date <= @dueDate";
+
+            using (taskDatabaseConnection = new SqlConnection(ConnectionString))
+            using (SqlCommand GetTotalTasks = new SqlCommand(fetchTotalTasks, taskDatabaseConnection))
+            using (SqlCommand GetNumberCompletedTasks = new SqlCommand(fetchTotalCompletedTasks, taskDatabaseConnection))
+            using (SqlCommand GetTasksDueIn3Days = new SqlCommand(fetchTasksDueInXDays, taskDatabaseConnection))
+            using (SqlCommand GetTasksDueIn7Days = new SqlCommand(fetchTasksDueInXDays, taskDatabaseConnection))
+            {
+                try
+                {
+                    taskDatabaseConnection.Open();
+                }
+                catch
+                {
+                    Console.WriteLine("Failed to open.");
+                }
+
+                GetNumberCompletedTasks.Parameters.AddWithValue("@completedTasks", 1);
+                GetTasksDueIn3Days.Parameters.AddWithValue("@dueDate", DateTime.Now.AddDays(3));
+                GetTasksDueIn7Days.Parameters.AddWithValue("@dueDate", DateTime.Now.AddDays(7));
+
+                int totalTasks = Convert.ToInt32(GetTotalTasks.ExecuteScalar());
+                int completedTasks = Convert.ToInt32(GetNumberCompletedTasks.ExecuteScalar());
+                Console.WriteLine(completedTasks);
+                int tasksDueInThreeDays = Convert.ToInt32(GetTasksDueIn3Days.ExecuteScalar());
+                int tasksDueInSevenDays = Convert.ToInt32(GetTasksDueIn7Days.ExecuteScalar());
+
+                FrontPageTasksDueIn3DaysProgressBar = new tasksDueIn3DaysProgressBar(totalTasks, tasksDueInThreeDays, Size.Width / 4, Size.Height / 6, Size.Width / 5, SystemColors.ControlDarkDark, "3");
+                FrontPageTasksDueIn7DaysProgressBar = new tasksDueIn3DaysProgressBar(totalTasks, tasksDueInSevenDays, Size.Width / 2, Size.Height / 6, Size.Width / 5, SystemColors.ControlDarkDark, "7");
+
+            }
+        }
+
+        private void SearchTaskNameDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string fetchTaskDescription =
+                "SELECT TASK_DESCRIPTION FROM dbo.Tasks WHERE TASK_NAME = @taskName";
+
+            using (taskDatabaseConnection = new SqlConnection(ConnectionString))
+            using (SqlCommand GetTaskDescription = new SqlCommand(fetchTaskDescription, taskDatabaseConnection))
+            {
+
+                taskDatabaseConnection.Open();
+                GetTaskDescription.Parameters.AddWithValue("@taskName", searchTaskNameDropdown.SelectedItem);
+                searchTaskDescriptionBox.Text = Convert.ToString(GetTaskDescription.ExecuteScalar());
+                taskDatabaseConnection.Close();
+            }
+        }
+
+        private void SearchTaskSearchButton_Click(object sender, EventArgs e)
+        {
+            searchTaskNameDropdown.Items.Clear();
+
+            string searchCommand =
+                "SELECT TASK_NAME FROM dbo.Tasks WHERE TASK_DUE_DATE >= @dueDateStart AND TASK_DUE_DATE <= @dueDateEnd AND COMPLETED = @COMPLETED";
+
+            using (taskDatabaseConnection = new SqlConnection(ConnectionString))
+            using (SqlCommand SearchTask = new SqlCommand(searchCommand, taskDatabaseConnection))
+            {
+
+                SearchTask.Parameters.AddWithValue("@dueDateStart", searchTaskStartDateTime.Value);
+                SearchTask.Parameters.AddWithValue("@dueDateEnd", searchTaskEndDateTime.Value);
+                SearchTask.Parameters.AddWithValue("@Completed", 0);
+
+                taskDatabaseConnection.Open();
+
+                using (var reader = SearchTask.ExecuteReader())
+                {
+                    var dropDownStrings = new List<String>();
+                    while (reader.Read())
+                        dropDownStrings.Add(reader.GetString(0));
+                    string[] dropDownItems = dropDownStrings.ToArray();
+
+                    for (int i = 0; i < dropDownItems.Length; ++i)
+                    {
+                        searchTaskNameDropdown.Items.Add(dropDownItems[i]);
+                    }
+                    taskDatabaseConnection.Close();
+                    if (dropDownItems.Length > 0)
+                    {
+                        searchTaskNameDropdown.SelectedItem = dropDownItems[0];
+                    }
+                }
+
+
+            }
+        }
+
+        private void RemoveSearchButton_Click(object sender, EventArgs e)
+        {
+            removeTaskNameDropDown.Items.Clear();
+
+            string searchCommand =
+                "SELECT TASK_NAME FROM dbo.Tasks";
+
+            if (!string.IsNullOrWhiteSpace(removeTaskNameTextbox.Text))
+            {
+                searchCommand += " WHERE TASK_NAME = @taskName";
+            }
+
+            if (removeTaskEndDateTime.Value > removeTaskStartDateTime.Value)
+            {
+                if (!string.IsNullOrWhiteSpace(removeTaskNameTextbox.Text))
+                {
+                    searchCommand += " AND TASK_DUE_DATE >= @dueDateStart AND TASK_DUE_DATE <= @dueDateEnd";
+                }
+                else
+                {
+                    searchCommand += " WHERE TASK_DUE_DATE >= @dueDateStart AND TASK_DUE_DATE <= @dueDateEnd";
+                }
+            }
+
+            using (taskDatabaseConnection = new SqlConnection(ConnectionString))
+            using (SqlCommand RemoveTask = new SqlCommand(searchCommand, taskDatabaseConnection))
+            {
+
+                RemoveTask.Parameters.AddWithValue("@taskName", removeTaskNameTextbox.Text);
+                RemoveTask.Parameters.AddWithValue("@dueDateStart", removeTaskStartDateTime.Value);
+                RemoveTask.Parameters.AddWithValue("@dueDateEnd", removeTaskEndDateTime.Value);
+
+                taskDatabaseConnection.Open();
+                using (var reader = RemoveTask.ExecuteReader())
+                {
+                    var dropDownStrings = new List<String>();
+                    while (reader.Read())
+                        dropDownStrings.Add(reader.GetString(0));
+                    string[] dropDownItems = dropDownStrings.ToArray();
+
+                    for (int i = 0; i < dropDownItems.Length; ++i)
+                    {
+                        removeTaskNameDropDown.Items.Add(dropDownItems[i]);
+                    }
+
+                    if (dropDownItems.Length > 0)
+                    {
+                        removeTaskNameDropDown.SelectedItem = dropDownItems[0];
+                    }
+                }
+
+
+            }
         }
 
         private void MenuSubmitButton_Click(object sender, EventArgs e)
         {
-            if (addTaskDueDateTime.Value <= DateTime.Now.AddHours(5))
+            if (addTaskDueDateTime.Value <= DateTime.Now.AddHours(5) || 
+                (addTaskPriority1.Checked == false && addTaskPriority2.Checked == false && 
+                addTaskPriority3.Checked == false && addTaskPriority4.Checked == false && 
+                addTaskPriority5.Checked == false) || 
+                string.IsNullOrWhiteSpace(addTaskNameTextbox.Text) || 
+                string.IsNullOrWhiteSpace(addTaskNameTextbox.Text))
             {
                 if (string.IsNullOrWhiteSpace(addTaskDescriptionTextbox.Text))
                 {
@@ -282,9 +520,9 @@
                     alertConfirmation.Show();
                 }
 
-                if (addTaskPriority1.Checked.Equals(false) && addTaskPriority2.Checked.Equals(false) &&
-                addTaskPriority3.Checked.Equals(false) && addTaskPriority4.Checked.Equals(false) &&
-                addTaskPriority5.Checked.Equals(false))
+                if (addTaskPriority1.Checked == false && addTaskPriority2.Checked == false &&
+                    addTaskPriority3.Checked == false && addTaskPriority4.Checked == false &&
+                    addTaskPriority5.Checked == false)
                 {
                     addTaskPriorityAlert.Show();
                     alertConfirmation.Show();
@@ -292,8 +530,8 @@
 
                 if (addTaskDueDateTime.Value <= DateTime.Now.AddHours(5) &&
                 (addTaskPriority1.Checked.Equals(true) || addTaskPriority2.Checked.Equals(true) ||
-                 addTaskPriority3.Checked.Equals(true) || addTaskPriority4.Checked.Equals(true) ||
-                 addTaskPriority5.Checked.Equals(true)) && !string.IsNullOrWhiteSpace(addTaskNameTextbox.Text) &&
+                addTaskPriority3.Checked.Equals(true) || addTaskPriority4.Checked.Equals(true) ||
+                addTaskPriority5.Checked.Equals(true)) && !string.IsNullOrWhiteSpace(addTaskNameTextbox.Text) &&
                 !string.IsNullOrWhiteSpace(addTaskNameTextbox.Text))
                 {
                     addDateTimeAlert.Show();
@@ -303,13 +541,11 @@
                 if (!string.IsNullOrWhiteSpace(addTaskDescriptionTextbox.Text))
                 {
                     addTaskDescriptionAlert.Hide();
-                    alertConfirmation.Hide();
                 }
 
                 if (!string.IsNullOrWhiteSpace(addTaskNameTextbox.Text))
                 {
                     addTaskNameAlert.Hide();
-                    alertConfirmation.Hide();
                 }
 
                 if (addTaskPriority1.Checked.Equals(true) || addTaskPriority2.Checked.Equals(true) ||
@@ -317,7 +553,6 @@
                 addTaskPriority5.Checked.Equals(true))
                 {
                     addTaskPriorityAlert.Hide();
-                    alertConfirmation.Hide();
                 }
 
                 if (addTaskDueDateTime.Value > DateTime.Now.AddHours(5))
@@ -329,8 +564,8 @@
             else
             { 
                 string insertCommand = 
-                    "INSERT INTO dbo.Tasks " + 
-                    "Values (@taskName, @taskDescription, @taskType, @priority, @dateTime)";
+                    "INSERT INTO dbo.Tasks " +
+                    "Values (@taskName, @taskDescription, @taskType, @priority, @dateTime, @completed)";
                 using (taskDatabaseConnection = new SqlConnection(ConnectionString))
                 using (SqlCommand AddTask = new SqlCommand(insertCommand, taskDatabaseConnection))
                 {
@@ -343,34 +578,15 @@
                         Console.WriteLine("Failed to open.");
                     }
 
-                    if (addTaskPriority1.Checked)
-                    {
-                        prioritySelection = 1;
-                    }
-                    else if (addTaskPriority2.Checked)
-                    {
-                        prioritySelection = 2;
-                    }
-                    else if (addTaskPriority3.Checked)
-                    {
-                        prioritySelection = 3;
-                    }
-                    else if (addTaskPriority4.Checked)
-                    {
-                        prioritySelection = 4;
-                    }
-                    else if (addTaskPriority5.Checked)
-                    {
-                        prioritySelection = 5;
-                    }
-
                     AddTask.Parameters.AddWithValue("@taskName", addTaskNameTextbox.Text);
                     AddTask.Parameters.AddWithValue("@taskDescription", addTaskDescriptionTextbox.Text);
                     AddTask.Parameters.AddWithValue("@taskType", addTaskTypeDropDown.SelectedItem);
                     AddTask.Parameters.AddWithValue("@priority", prioritySelection);
                     AddTask.Parameters.AddWithValue("@dateTime", addTaskDueDateTime.Value);
+                    AddTask.Parameters.AddWithValue("@completed", 0);
 
                     AddTask.ExecuteNonQuery();
+                    clearAddMenuAlerts();
                 }
             }
         }
@@ -383,9 +599,10 @@
                 addTaskPriority3.Checked = false;
                 addTaskPriority2.Checked = false;
                 addTaskPriority1.Checked = false;
+                prioritySelection = 5;
             }
         }
-
+  
         private void AddTaskPriority4_CheckedChanged(object sender, EventArgs e)
         {
             if (addTaskPriority4.Checked)
@@ -394,6 +611,7 @@
                 addTaskPriority3.Checked = false;
                 addTaskPriority2.Checked = false;
                 addTaskPriority1.Checked = false;
+                prioritySelection = 4;
             }
         }
 
@@ -405,6 +623,7 @@
                 addTaskPriority4.Checked = false;
                 addTaskPriority2.Checked = false;
                 addTaskPriority1.Checked = false;
+                prioritySelection = 3;
             }
         }
 
@@ -416,6 +635,7 @@
                 addTaskPriority4.Checked = false;
                 addTaskPriority3.Checked = false;
                 addTaskPriority1.Checked = false;
+                prioritySelection = 2;
             }
         }
 
@@ -427,6 +647,7 @@
                 addTaskPriority4.Checked = false;
                 addTaskPriority3.Checked = false;
                 addTaskPriority2.Checked = false;
+                prioritySelection = 1;
             }
         }
 
@@ -446,6 +667,16 @@
             addTaskNameAlert.Hide();
             addTaskDescriptionAlert.Hide();
             addDateTimeAlert.Hide();
+            prioritySelection = 0;
+            addTaskNameTextbox.Text = "";
+            addTaskDescriptionTextbox.Text = "";
+            addTaskDueDateTime.Value = DateTime.Now;
+            addTaskTypeDropDown.SelectedItem = addTaskTypeDropDown.Items[0];
+            addTaskPriority1.Checked = false;
+            addTaskPriority2.Checked = false;
+            addTaskPriority3.Checked = false;
+            addTaskPriority4.Checked = false;
+            addTaskPriority5.Checked = false;
         }
 
         private void addButton_Hover(object sender, EventArgs e)
