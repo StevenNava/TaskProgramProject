@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApplication1.Reporting;
 
@@ -76,6 +77,8 @@ namespace WindowsFormsApplication1.View
 
         private readonly Label reportsTitle;
         private readonly Button searchButton;
+        private readonly ComboBox reportSelector;
+        private readonly TextBox reportsTextbox;
 
         //Search Task Menu Items
         private readonly HomeScreenMenuPanel searchMenu;
@@ -221,7 +224,7 @@ namespace WindowsFormsApplication1.View
                 removeTaskNameTextbox.Location.Y + 80);
             removeTaskEndDateTime = new menuDateTimePicker("removeaskEndDateTime", removeTaskStartDateTime.Location.X,
                 removeTaskStartDateTime.Location.Y + 80);
-            removeTaskNameDropDown = new removeTaskDropdown("removeTaskDropdown", removeTaskEndDateTime.Location.X,
+            removeTaskNameDropDown = new generalBlankDropdown("removeTaskDropdown", removeTaskEndDateTime.Location.X,
                 removeTaskEndDateTime.Location.Y + 80);
             removeDeleteButton = new ConfirmationButton("menuForm", "Complete",
                 removeTaskNameDropDown.Location.X,
@@ -245,7 +248,7 @@ namespace WindowsFormsApplication1.View
             searchTaskStartDateTime = new menuDateTimePicker("searchTasksStartDateTime", 200, 71);
             searchTaskEndDateTime = new menuDateTimePicker("searchTasksEndDateTime", searchTaskStartDateTime.Location.X,
                 searchTaskStartDateTime.Location.Y + 80);
-            searchTaskNameDropdown = new removeTaskDropdown("searchTaskDropdown", searchTaskEndDateTime.Location.X,
+            searchTaskNameDropdown = new generalBlankDropdown("searchTaskDropdown", searchTaskEndDateTime.Location.X,
                 searchTaskEndDateTime.Location.Y + 80);
             searchTaskDescriptionBox = new informationTextbox("searchTaskDescriptionTextbox",
                 searchTaskNameDropdown.Location.X, searchTaskNameDropdown.Location.Y + 80,
@@ -258,11 +261,27 @@ namespace WindowsFormsApplication1.View
                 titleBar.Size.Width - addButton.Size.Width, menuBar.Size.Height);
 
 
-            reportsTitle = new menuLabel("reportsTitle", "Reports", 270, 18);
-            fullReportButton = new ConfirmationButton("menuForm", "Generate Report", Size.Width / 3, Size.Height / 5);
-            fullReportButton.Font = new Font("Century Gothic", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            completedTasksReportButton = new ConfirmationButton("menuForm", "Generate Report",
-                fullReportButton.Location.X, fullReportButton.Location.Y + 80);
+            reportsTitle = new menuLabel("reportsTitle", "Reports", 290, 18);
+            reportsTextbox = new InstructionalTextbox("reportsTextbox", 100, 71);
+            reportsTextbox.Text =
+                "Please choose a report from the dropdown menu.\r\n\r\nThe available reports are: full tasks report which gives information on all tasks, tasks due within 3 days,"
+                 + " tasks due within 7 days, overdue tasks, or completed tasks. All reports can be saved or printed.";
+
+            reportSelector = new generalBlankDropdown("reportSelector", 200, Size.Height / 11 * 5);
+            reportSelector.Items.AddRange(new object[]
+                {
+                "Full Tasks Report",
+                "Tasks Due In 3 Days",
+                "Tasks Due In 7 Days",
+                "Completed Tasks Report",
+                "Overdue Tasks Report"
+                });
+            reportSelector.SelectedItem = reportSelector.Items[0];
+
+            completedTasksReportButton = new ConfirmationButton("menuForm", "Run Report",
+                Size.Width / 5 * 2, reportSelector.Location.Y + 80);
+
+            completedTasksReportButton.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
 
             settingsMenu = new HomeScreenMenuPanel(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
                 titleBar.Size.Width - addButton.Size.Width, menuBar.Size.Height);
@@ -287,7 +306,6 @@ namespace WindowsFormsApplication1.View
             reportsMenu.menuSubmitButton.Click += ReportMenuSubmitButton_Click;
             removeMenu.menuSubmitButton.Click += MenuSubmitButton_Click;
 
-            fullReportButton.Click += FullReportButton_Click;
             completedTasksReportButton.Click += CompletedTasksReportButton_Click;
 
             addTaskPriority1.CheckedChanged += AddTaskPriority_CheckedChanged;
@@ -367,8 +385,9 @@ namespace WindowsFormsApplication1.View
             searchMenu.Hide();
 
             reportsMenu.Controls.Add(reportsTitle);
-            reportsMenu.Controls.Add(fullReportButton);
+            reportsMenu.Controls.Add(reportSelector);
             reportsMenu.Controls.Add(completedTasksReportButton);
+            reportsMenu.Controls.Add(reportsTextbox);
             reportsMenu.Hide();
 
             settingsMenu.Controls.Add(settingsTitle);
@@ -428,15 +447,13 @@ namespace WindowsFormsApplication1.View
 
         private void CompletedTasksReportButton_Click(object sender, EventArgs e)
         {
-            CompletedTasksReport = new CompletedTasksReportForm();
-            CompletedTasksReport.Show();
+            if (reportSelector.SelectedItem == "Full Tasks Report")
+            {
+                FullReport = new FullReportForm();
+                FullReport.Show();
+            }
         }
 
-        private void FullReportButton_Click(object sender, EventArgs e)
-        {
-            FullReport = new FullReportForm();
-            FullReport.Show();
-        }
 
         private void OverdueTasksButton_Click(object sender, EventArgs e)
         {
@@ -458,7 +475,6 @@ namespace WindowsFormsApplication1.View
 
         private void ReportMenuSubmitButton_Click(object sender, EventArgs e)
         {
-            FullReport.Show();
         }
 
         private void createHomePageProgressBars()

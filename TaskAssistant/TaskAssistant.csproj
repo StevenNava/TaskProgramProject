@@ -145,7 +145,10 @@
     <Compile Include="View\AlertExclamationImage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\removeTaskDropdown.cs">
+    <Compile Include="View\InstructionalTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\generalBlankDropdown.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\statisticPanel.cs">
