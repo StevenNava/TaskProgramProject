@@ -1,99 +1,114 @@
-﻿namespace WindowsFormsApplication1.View
-{
-    using System;
-    using System.Windows.Forms;
-    using System.Drawing;
-    using System.Data.SqlClient;
-    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Windows.Forms;
+using WindowsFormsApplication1.Reporting;
 
+namespace WindowsFormsApplication1.View
+{
     internal class programMainForm : Form
     {
         //object declaration
-        homeScreenMenuButton addButton;
-        homeScreenMenuButton removeButton;
-        homeScreenMenuButton searchButton;
-        homeScreenMenuButton reportsButton;
-        homeScreenMenuButton settingsButton;
-        private menuLabel AtAGlance;
-        private tasksDueIn3DaysProgressBar FrontPageTasksDueIn3DaysProgressBar;
-        private tasksDueIn3DaysProgressBar FrontPageTasksDueIn7DaysProgressBar;
-        titleBarPanel titleBar;
-        verticalPanel menuBar;
-        titleLabelFirstHalf firstHalfTitleLabel;
-        titleLabelSecondHalf secondHalfTitleLabel;
-        controlBarPanel controlBar;
-        ControlBarButton exit;
-        ControlBarButton minimize;
+        private readonly Button addButton;
+
+        private readonly PictureBox addDateTimeAlert;
 
         //Add Task Menu Items
-        readonly homeScreenMenu addMenu;
-        menuLabel addTaskTitle;
-        menuLabel addTaskTaskName;
-        menuLabel addTaskTaskDescription;
-        menuLabel addTaskDueDate;
-        menuLabel addTaskType;
-        menuLabel addTaskPriority;
-        informationTextbox addTaskNameTextbox;
-        informationTextbox addTaskDescriptionTextbox;
-        menuDateTimePicker addTaskDueDateTime;
-        informationDropdown addTaskTypeDropDown;
-        informationCheckbox addTaskPriority1;
-        informationCheckbox addTaskPriority2;
-        informationCheckbox addTaskPriority3;
-        informationCheckbox addTaskPriority4;
-        informationCheckbox addTaskPriority5;
-        AlertExclamationImage addTaskDescriptionAlert;
-        AlertExclamationImage addTaskNameAlert;
-        AlertExclamationImage addTaskPriorityAlert;
-        AlertExclamationImage addDateTimeAlert;
-        private ConfirmationForm alertConfirmation;
-        private ConfirmationForm dateTimealertConfirmation;
-        private int prioritySelection;
+        private readonly HomeScreenMenuPanel addMenu;
+
+        private readonly PictureBox addTaskDescriptionAlert;
+        private readonly RichTextBox addTaskDescriptionTextbox;
+        private readonly Label addTaskDueDate;
+        private readonly DateTimePicker addTaskDueDateTime;
+        private readonly PictureBox addTaskNameAlert;
+        private readonly RichTextBox addTaskNameTextbox;
+        private readonly Label addTaskPriority;
+        private readonly CheckBox addTaskPriority1;
+        private readonly CheckBox addTaskPriority2;
+        private readonly CheckBox addTaskPriority3;
+        private readonly CheckBox addTaskPriority4;
+        private readonly CheckBox addTaskPriority5;
+        private readonly PictureBox addTaskPriorityAlert;
+        private readonly Label addTaskTaskDescription;
+        private readonly Label addTaskTaskName;
+        private readonly Label addTaskTitle;
+        private readonly Label addTaskType;
+        private readonly ComboBox addTaskTypeDropDown;
+        private readonly Form alertConfirmation;
+        private readonly Label AtAGlance;
+        private readonly Button completedTasksReportButton;
+
+        private readonly string ConnectionString =
+            "Data Source=localhost; " +
+            "Initial Catalog=TaskAssistant; " +
+            "user id=test; " +
+            "password=test; " +
+            "connection timeout=30";
+
+        private readonly Panel controlBar;
+        private readonly Form dateTimealertConfirmation;
+        private readonly Button exit;
+        private readonly Label firstHalfTitleLabel;
+        private readonly Button fullReportButton;
+        private readonly Panel menuBar;
+        private readonly Button minimize;
+        private readonly Button removeButton;
 
         //Remove Task Menu Items
-        homeScreenMenu removeMenu;
-        menuLabel removeTaskTitle;
-        private menuLabel removeTaskName;
-        private menuLabel removeTaskStartDateTimeLabel;
-        private menuLabel removeTaskEndDateTimeLabel;
-        informationTextbox removeTaskNameTextbox;
-        private menuDateTimePicker removeTaskStartDateTime;
-        private menuDateTimePicker removeTaskEndDateTime;
-        private ConfirmationButton removeSearchButton;
-        private removeTaskDropdown removeTaskNameDropDown;
-        private menuLabel removeTaskChooseTaskLabel;
+        private readonly HomeScreenMenuPanel removeMenu;
 
-        //Search Task Menu Items
-        homeScreenMenu searchMenu;
-        menuLabel searchTasksTitle;
-        private menuLabel searchTaskStartDateTimeLabel;
-        private menuLabel searchTaskEndDateTimeLabel;
-        private menuDateTimePicker searchTaskStartDateTime;
-        private menuDateTimePicker searchTaskEndDateTime;
-        private removeTaskDropdown searchTaskNameDropdown;
-        private informationTextbox searchTaskDescriptionBox;
-        private ConfirmationButton searchTaskSearchButton;
-        private menuLabel searchTaskChooseTaskLabel;
-        private menuLabel searchTaskDescription;
+        private readonly Button removeDeleteButton;
+        private readonly Button removeSearchButton;
+        private readonly Label removeTaskChooseTaskLabel;
+        private readonly DateTimePicker removeTaskEndDateTime;
+        private readonly Label removeTaskEndDateTimeLabel;
+        private readonly Label removeTaskName;
+        private readonly ComboBox removeTaskNameDropDown;
+        private readonly RichTextBox removeTaskNameTextbox;
+        private readonly DateTimePicker removeTaskStartDateTime;
+        private readonly Label removeTaskStartDateTimeLabel;
+        private readonly Label removeTaskTitle;
+        private readonly Button reportsButton;
 
         //Reports Menu Items
-        readonly homeScreenMenu reportsMenu;
-        menuLabel reportsTitle;
+        private readonly HomeScreenMenuPanel reportsMenu;
+
+        private readonly Label reportsTitle;
+        private readonly Button searchButton;
+
+        //Search Task Menu Items
+        private readonly HomeScreenMenuPanel searchMenu;
+
+        private readonly Label searchTaskChooseTaskLabel;
+        private readonly menuLabel searchTaskDescription;
+        private readonly RichTextBox searchTaskDescriptionBox;
+        private readonly DateTimePicker searchTaskEndDateTime;
+        private readonly menuLabel searchTaskEndDateTimeLabel;
+        private readonly ComboBox searchTaskNameDropdown;
+        private readonly Button searchTaskSearchButton;
+        private readonly DateTimePicker searchTaskStartDateTime;
+        private readonly menuLabel searchTaskStartDateTimeLabel;
+        private readonly menuLabel searchTasksTitle;
+        private readonly Label secondHalfTitleLabel;
+        private readonly Button settingsButton;
 
         //Settings Menu Items
-        homeScreenMenu settingsMenu;
-        menuLabel settingsTitle;
+        private readonly HomeScreenMenuPanel settingsMenu;
+
+        private readonly Label settingsTitle;
+        private readonly Panel titleBar;
+        private tasksDueProgressBar FrontPageTasksDueIn3DaysProgressBar;
+        private tasksDueProgressBar FrontPageTasksDueIn7DaysProgressBar;
+        private tasksDueProgressBar FrontPageOverdueTasksProgressBar;
+        private Form FullReport;
+        private Form CompletedTasksReport;
+        private Form TasksDueIn3DaysReport;
 
         private bool menuShow;
+        private int prioritySelection;
 
         private SqlConnection taskDatabaseConnection;
-        private string ConnectionString =
-          ("Data Source=localhost; " +
-           "Initial Catalog=TaskAssistant; " +
-           "user id=test; " +
-           "password=test; " +
-           "connection timeout=30");
-
 
 
         internal programMainForm(string formName) // accept name as a parameter
@@ -109,13 +124,13 @@
             //add MouseDown event this.MouseDown += new MouseEventHandler(this.Form1_MouseDown_1);
             ResumeLayout(false);
 
-            titleBar = new titleBarPanel("homeScreenTitleBar", this.Size.Width, this.Size.Height / 13);
+            titleBar = new titleBarPanel("homeScreenTitleBar", Size.Width, Size.Height / 13);
 
-            menuBar = new verticalPanel("menuBar", titleBar.Location.X, (titleBar.Location.Y + titleBar.Size.Height),
-                this.Size.Width / 4, this.Size.Height - titleBar.Size.Height);
+            menuBar = new verticalPanel("menuBar", titleBar.Location.X, titleBar.Location.Y + titleBar.Size.Height,
+                Size.Width / 4, Size.Height - titleBar.Size.Height);
 
             addButton = new homeScreenMenuButton("addButton", new Point(0, 2), menuBar.Size.Width,
-                (menuBar.Size.Height / 5) - 2, "Add Tasks", "add");
+                menuBar.Size.Height / 5 - 2, "Add Tasks", "add");
             removeButton = new homeScreenMenuButton("removeButton", new Point(0, 2), addButton.Size.Width,
                 addButton.Size.Height, "Remove Tasks", "remove");
             searchButton = new homeScreenMenuButton("searchButton", new Point(0, 2), addButton.Size.Width,
@@ -137,12 +152,13 @@
             minimize = new ControlBarButton("minimize", exit.Location.X - exit.Size.Width - 2, 0, "_");
 
             createHomePageProgressBars();
+            FrontPageTasksDueIn3DaysProgressBar.Click += TasksDueIn3DaysButton_Click;
 
             AtAGlance = new menuLabel("AtAGlanceLabel", "At A Glance", Size.Width / 14 * 8, Size.Height / 8);
             AtAGlance.ForeColor = SystemColors.ControlDarkDark;
 
-            addMenu = new homeScreenMenu(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
-                this.Size.Width - addButton.Size.Width, menuBar.Size.Height);
+            addMenu = new HomeScreenMenuPanel(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
+                Size.Width - addButton.Size.Width, menuBar.Size.Height);
 
             addTaskTitle = new menuLabel("addTaskTitle", "Add Task", 270, 18);
             addTaskTaskName = new menuLabel("addTaskTaskName", "Name", 40, 74);
@@ -183,64 +199,83 @@
                 new AlertExclamationImage(addTaskDescriptionAlert.Location.X, addTaskDueDateTime.Location.Y);
             alertConfirmation = new ConfirmationForm("addMenuAlertConfirmation");
             dateTimealertConfirmation = new ConfirmationForm("dateTimeConfirmation");
-            
-            removeMenu = new homeScreenMenu(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
+
+            removeMenu = new HomeScreenMenuPanel(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
                 titleBar.Size.Width - addButton.Size.Width, menuBar.Size.Height);
 
             removeTaskTitle = new menuLabel("removeTaskTitle", "Remove Task", 270, 18);
             removeTaskName = new menuLabel("removeTaskName", "Name", 40, 74);
-            removeTaskStartDateTimeLabel = new menuLabel("removeStartDateTimeLabel", "Search Start", removeTaskName.Location.X,
+            removeTaskStartDateTimeLabel = new menuLabel("removeStartDateTimeLabel", "Search Start",
+                removeTaskName.Location.X,
                 removeTaskName.Location.Y + 80);
-            removeTaskEndDateTimeLabel = new menuLabel("removeEndDateTimeLabel", "Search End", removeTaskStartDateTimeLabel.Location.X,
+            removeTaskEndDateTimeLabel = new menuLabel("removeEndDateTimeLabel", "Search End",
+                removeTaskStartDateTimeLabel.Location.X,
                 removeTaskStartDateTimeLabel.Location.Y + 80);
-            removeTaskChooseTaskLabel = new menuLabel("removeChooseTaskLabel", "Choose Task", removeTaskEndDateTimeLabel.Location.X,
+            removeTaskChooseTaskLabel = new menuLabel("removeChooseTaskLabel", "Choose Task",
+                removeTaskEndDateTimeLabel.Location.X,
                 removeTaskEndDateTimeLabel.Location.Y + 80);
 
             removeTaskNameTextbox = new informationTextbox("removeTaskNameTextbox", 200, 71);
-            removeTaskStartDateTime = new menuDateTimePicker("removeTaskStartDateTime", removeTaskNameTextbox.Location.X,
+            removeTaskStartDateTime = new menuDateTimePicker("removeTaskStartDateTime",
+                removeTaskNameTextbox.Location.X,
                 removeTaskNameTextbox.Location.Y + 80);
             removeTaskEndDateTime = new menuDateTimePicker("removeaskEndDateTime", removeTaskStartDateTime.Location.X,
                 removeTaskStartDateTime.Location.Y + 80);
             removeTaskNameDropDown = new removeTaskDropdown("removeTaskDropdown", removeTaskEndDateTime.Location.X,
                 removeTaskEndDateTime.Location.Y + 80);
-            removeSearchButton = new ConfirmationButton("menuForm", "Search", removeTaskNameDropDown.Location.X + removeTaskNameDropDown.Width / 3, removeTaskNameDropDown.Location.Y + 60);
+            removeDeleteButton = new ConfirmationButton("menuForm", "Complete",
+                removeTaskNameDropDown.Location.X,
+                removeTaskNameDropDown.Location.Y + 60);
+            removeSearchButton = new ConfirmationButton("menuForm", "Search",
+                removeDeleteButton.Location.X + 210 ,
+                removeDeleteButton.Location.Y);
 
-            searchMenu = new homeScreenMenu(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
+            searchMenu = new HomeScreenMenuPanel(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
                 titleBar.Size.Width - addButton.Size.Width, menuBar.Size.Height);
 
             searchTasksTitle = new menuLabel("searchTaskTitle", "Search Task", 270, 18);
             searchTaskStartDateTimeLabel = new menuLabel("searchTaskStartDateTime", "Search Start", 40, 74);
             searchTaskEndDateTimeLabel = new menuLabel("searchTaskEndDateTime", "Search End",
                 searchTaskStartDateTimeLabel.Location.X, searchTaskStartDateTimeLabel.Location.Y + 80);
-            searchTaskChooseTaskLabel = new menuLabel("searchChooseTaskLabel", "Choose Task", searchTaskEndDateTimeLabel.Location.X,
+            searchTaskChooseTaskLabel = new menuLabel("searchChooseTaskLabel", "Choose Task",
+                searchTaskEndDateTimeLabel.Location.X,
                 searchTaskEndDateTimeLabel.Location.Y + 80);
-            searchTaskDescription = new menuLabel("searchTaskDescription", "Description", searchTaskChooseTaskLabel.Location.X, searchTaskChooseTaskLabel.Location.Y + 80);
+            searchTaskDescription = new menuLabel("searchTaskDescription", "Description",
+                searchTaskChooseTaskLabel.Location.X, searchTaskChooseTaskLabel.Location.Y + 80);
             searchTaskStartDateTime = new menuDateTimePicker("searchTasksStartDateTime", 200, 71);
             searchTaskEndDateTime = new menuDateTimePicker("searchTasksEndDateTime", searchTaskStartDateTime.Location.X,
                 searchTaskStartDateTime.Location.Y + 80);
             searchTaskNameDropdown = new removeTaskDropdown("searchTaskDropdown", searchTaskEndDateTime.Location.X,
                 searchTaskEndDateTime.Location.Y + 80);
-            searchTaskDescriptionBox = new informationTextbox("searchTaskDescriptionTextbox", searchTaskNameDropdown.Location.X, searchTaskNameDropdown.Location.Y + 80, searchTaskNameDropdown.Size.Width, searchTaskNameDropdown.Size.Height * 4);
-            searchTaskSearchButton = new ConfirmationButton("menuForm", "Search", searchTaskDescriptionBox.Location.X + searchTaskDescriptionBox.Width / 3, searchTaskDescriptionBox.Location.Y  + (searchTaskNameDropdown.Size.Height * 2) + 60);
+            searchTaskDescriptionBox = new informationTextbox("searchTaskDescriptionTextbox",
+                searchTaskNameDropdown.Location.X, searchTaskNameDropdown.Location.Y + 80,
+                searchTaskNameDropdown.Size.Width, searchTaskNameDropdown.Size.Height * 4);
+            searchTaskSearchButton = new ConfirmationButton("menuForm", "Search",
+                searchTaskDescriptionBox.Location.X + searchTaskDescriptionBox.Width / 3,
+                searchTaskDescriptionBox.Location.Y + searchTaskNameDropdown.Size.Height * 2 + 60);
 
-            reportsMenu = new homeScreenMenu(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
+            reportsMenu = new HomeScreenMenuPanel(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
                 titleBar.Size.Width - addButton.Size.Width, menuBar.Size.Height);
 
-            reportsTitle = new menuLabel("reportsTitle", "Reports", 270, 18);
 
-            settingsMenu = new homeScreenMenu(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
+            reportsTitle = new menuLabel("reportsTitle", "Reports", 270, 18);
+            fullReportButton = new ConfirmationButton("menuForm", "Generate Report", Size.Width / 3, Size.Height / 5);
+            fullReportButton.Font = new Font("Century Gothic", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            completedTasksReportButton = new ConfirmationButton("menuForm", "Generate Report",
+                fullReportButton.Location.X, fullReportButton.Location.Y + 80);
+
+            settingsMenu = new HomeScreenMenuPanel(addButton.Location.X + addButton.Size.Width, titleBar.Size.Height,
                 titleBar.Size.Width - addButton.Size.Width, menuBar.Size.Height);
 
             settingsTitle = new menuLabel("settingsTitle", "Settings", 270, 18);
 
 
-
             //create home screen objects
-            addButton.MouseHover += addButton_Hover;
-            removeButton.MouseHover += removeButton_Hover;
-            searchButton.MouseHover += searchButton_Hover;
-            reportsButton.MouseHover += reportsButton_Hover;
-            settingsButton.MouseHover += settingsButton_Hover;
+            addButton.MouseHover += HomeMenuButton_Hover;
+            removeButton.MouseHover += HomeMenuButton_Hover;
+            searchButton.MouseHover += HomeMenuButton_Hover;
+            reportsButton.MouseHover += HomeMenuButton_Hover;
+            settingsButton.MouseHover += HomeMenuButton_Hover;
 
             addMenu.menuCancelButton.Click += menuCancelButton_Click;
             removeMenu.menuCancelButton.Click += menuCancelButton_Click;
@@ -248,15 +283,21 @@
             reportsMenu.menuCancelButton.Click += menuCancelButton_Click;
             settingsMenu.menuCancelButton.Click += menuCancelButton_Click;
 
-            addMenu.menuSubmitButton.Click += MenuSubmitButton_Click;
+            addMenu.menuSubmitButton.Click += AddMenuSubmitButton_Click;
+            reportsMenu.menuSubmitButton.Click += ReportMenuSubmitButton_Click;
+            removeMenu.menuSubmitButton.Click += MenuSubmitButton_Click;
 
-            addTaskPriority1.CheckedChanged += AddTaskPriority1_CheckedChanged;
-            addTaskPriority2.CheckedChanged += AddTaskPriority2_CheckedChanged;
-            addTaskPriority3.CheckedChanged += AddTaskPriority3_CheckedChanged;
-            addTaskPriority4.CheckedChanged += AddTaskPriority4_CheckedChanged;
-            addTaskPriority5.CheckedChanged += AddTaskPriority5_CheckedChanged;
+            fullReportButton.Click += FullReportButton_Click;
+            completedTasksReportButton.Click += CompletedTasksReportButton_Click;
+
+            addTaskPriority1.CheckedChanged += AddTaskPriority_CheckedChanged;
+            addTaskPriority2.CheckedChanged += AddTaskPriority_CheckedChanged;
+            addTaskPriority3.CheckedChanged += AddTaskPriority_CheckedChanged;
+            addTaskPriority4.CheckedChanged += AddTaskPriority_CheckedChanged;
+            addTaskPriority5.CheckedChanged += AddTaskPriority_CheckedChanged;
 
             removeSearchButton.Click += RemoveSearchButton_Click;
+            removeDeleteButton.Click += RemoveDeleteButton_Click;
             searchTaskSearchButton.Click += SearchTaskSearchButton_Click;
             searchTaskNameDropdown.SelectedIndexChanged += SearchTaskNameDropdown_SelectedIndexChanged;
 
@@ -307,6 +348,7 @@
             removeMenu.Controls.Add(removeTaskNameTextbox);
             removeMenu.Controls.Add(removeTaskStartDateTime);
             removeMenu.Controls.Add(removeTaskEndDateTime);
+            removeMenu.Controls.Add(removeDeleteButton);
             removeMenu.Controls.Add(removeSearchButton);
             removeMenu.Controls.Add(removeTaskNameDropDown);
             removeMenu.Controls.Add(removeTaskChooseTaskLabel);
@@ -325,6 +367,8 @@
             searchMenu.Hide();
 
             reportsMenu.Controls.Add(reportsTitle);
+            reportsMenu.Controls.Add(fullReportButton);
+            reportsMenu.Controls.Add(completedTasksReportButton);
             reportsMenu.Hide();
 
             settingsMenu.Controls.Add(settingsTitle);
@@ -344,25 +388,23 @@
             Controls.Add(AtAGlance);
             Controls.Add(FrontPageTasksDueIn3DaysProgressBar);
             Controls.Add(FrontPageTasksDueIn7DaysProgressBar);
-
+            Controls.Add(FrontPageOverdueTasksProgressBar);
         }
 
-        private void createHomePageProgressBars()
+        private void RemoveDeleteButton_Click(object sender, EventArgs e)
         {
-            string fetchTotalTasks =
-                "SELECT COUNT(*) FROM dbo.Tasks";
 
-            String fetchTotalCompletedTasks =
-                "SELECT COUNT(*) FROM dbo.Tasks WHERE Completed = @completedTasks";
+            if (removeTaskNameDropDown.SelectedItem == null)
+            {
+                return;
+            }
 
-            String fetchTasksDueInXDays =
-                "SELECT COUNT(*) FROM dbo.Tasks WHERE Task_Due_Date <= @dueDate";
+            var deleteSelectedTask =
+                "DELETE FROM dbo.Tasks WHERE Task_Name = @taskName";
+
 
             using (taskDatabaseConnection = new SqlConnection(ConnectionString))
-            using (SqlCommand GetTotalTasks = new SqlCommand(fetchTotalTasks, taskDatabaseConnection))
-            using (SqlCommand GetNumberCompletedTasks = new SqlCommand(fetchTotalCompletedTasks, taskDatabaseConnection))
-            using (SqlCommand GetTasksDueIn3Days = new SqlCommand(fetchTasksDueInXDays, taskDatabaseConnection))
-            using (SqlCommand GetTasksDueIn7Days = new SqlCommand(fetchTasksDueInXDays, taskDatabaseConnection))
+            using (var DeleteSelectedTask = new SqlCommand(deleteSelectedTask, taskDatabaseConnection))
             {
                 try
                 {
@@ -373,31 +415,118 @@
                     Console.WriteLine("Failed to open.");
                 }
 
+                DeleteSelectedTask.Parameters.AddWithValue("@taskName", removeTaskNameDropDown.SelectedItem);
+                DeleteSelectedTask.ExecuteScalar();
+                taskDatabaseConnection.Close();
+            }
+        }
+
+        private void MenuSubmitButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void CompletedTasksReportButton_Click(object sender, EventArgs e)
+        {
+            CompletedTasksReport = new CompletedTasksReportForm();
+            CompletedTasksReport.Show();
+        }
+
+        private void FullReportButton_Click(object sender, EventArgs e)
+        {
+            FullReport = new FullReportForm();
+            FullReport.Show();
+        }
+
+        private void OverdueTasksButton_Click(object sender, EventArgs e)
+        {
+            FullReport = new FullReportForm();
+            FullReport.Show();
+        }
+
+        private void TasksDueIn3DaysButton_Click(object sender, EventArgs e)
+        {
+            FullReport = new TasksDueIn3DaysReport();
+            FullReport.Show();
+        }
+
+        private void TasksDueIn7DaysButton_Click(object sender, EventArgs e)
+        {
+            FullReport = new FullReportForm();
+            FullReport.Show();
+        }
+
+        private void ReportMenuSubmitButton_Click(object sender, EventArgs e)
+        {
+            FullReport.Show();
+        }
+
+        private void createHomePageProgressBars()
+        {
+            var fetchTotalTasks =
+                "SELECT COUNT(*) FROM dbo.Tasks";
+
+            var fetchTotalTasksNotComplete =
+                "SELECT COUNT(*) FROM dbo.Tasks WHERE Completed != @completedTasks";
+
+            var fetchTotalCompletedTasks =
+                "SELECT COUNT(*) FROM dbo.Tasks WHERE Completed = @completedTasks";
+
+            var fetchTasksDueInXDays =
+                "SELECT COUNT(*) FROM dbo.Tasks WHERE Task_Due_Date <= @dueDate";
+
+            var fetchOverdueTasks =
+                "SELECT COUNT(*) FROM dbo.Tasks WHERE Task_Due_Date <= @previousDueDate";
+
+            using (taskDatabaseConnection = new SqlConnection(ConnectionString))
+            using (var GetTotalTasks = new SqlCommand(fetchTotalTasks, taskDatabaseConnection))
+            using (var GetTotalTasksNotCompleted = new SqlCommand(fetchTotalTasksNotComplete, taskDatabaseConnection))
+            using (var GetNumberCompletedTasks = new SqlCommand(fetchTotalCompletedTasks, taskDatabaseConnection))
+            using (var GetTasksDueIn3Days = new SqlCommand(fetchTasksDueInXDays, taskDatabaseConnection))
+            using (var GetTasksDueIn7Days = new SqlCommand(fetchTasksDueInXDays, taskDatabaseConnection))
+            using (var GetOverdueTasks = new SqlCommand(fetchOverdueTasks, taskDatabaseConnection))
+            {
+                try
+                {
+                    taskDatabaseConnection.Open();
+                }
+                catch
+                {
+                    Console.WriteLine("Failed to open.");
+                }
+
+                GetTotalTasksNotCompleted.Parameters.AddWithValue("@completedTasks", 1);
                 GetNumberCompletedTasks.Parameters.AddWithValue("@completedTasks", 1);
                 GetTasksDueIn3Days.Parameters.AddWithValue("@dueDate", DateTime.Now.AddDays(3));
                 GetTasksDueIn7Days.Parameters.AddWithValue("@dueDate", DateTime.Now.AddDays(7));
+                GetOverdueTasks.Parameters.AddWithValue("@previousDueDate", DateTime.Now);
 
-                int totalTasks = Convert.ToInt32(GetTotalTasks.ExecuteScalar());
-                int completedTasks = Convert.ToInt32(GetNumberCompletedTasks.ExecuteScalar());
+                var totalTasks = Convert.ToInt32(GetTotalTasks.ExecuteScalar());
+                var totalTasksNotCompleted = Convert.ToInt32(GetTotalTasksNotCompleted.ExecuteScalar());
+                var completedTasks = Convert.ToInt32(GetNumberCompletedTasks.ExecuteScalar());
                 Console.WriteLine(completedTasks);
-                int tasksDueInThreeDays = Convert.ToInt32(GetTasksDueIn3Days.ExecuteScalar());
-                int tasksDueInSevenDays = Convert.ToInt32(GetTasksDueIn7Days.ExecuteScalar());
+                var tasksDueInThreeDays = Convert.ToInt32(GetTasksDueIn3Days.ExecuteScalar());
+                var tasksDueInSevenDays = Convert.ToInt32(GetTasksDueIn7Days.ExecuteScalar());
+                var overdueTasks = Convert.ToInt32(GetOverdueTasks.ExecuteScalar());
 
-                FrontPageTasksDueIn3DaysProgressBar = new tasksDueIn3DaysProgressBar(totalTasks, tasksDueInThreeDays, Size.Width / 4, Size.Height / 6, Size.Width / 5, SystemColors.ControlDarkDark, "3");
-                FrontPageTasksDueIn7DaysProgressBar = new tasksDueIn3DaysProgressBar(totalTasks, tasksDueInSevenDays, Size.Width / 2, Size.Height / 6, Size.Width / 5, SystemColors.ControlDarkDark, "7");
+                FrontPageTasksDueIn3DaysProgressBar = new tasksDueProgressBar(totalTasks, tasksDueInThreeDays,
+                    Size.Width / 4, Size.Height / 6, Size.Width / 5, SystemColors.ControlDarkDark, "Tasks Due In 3 Days", 25);
+                FrontPageTasksDueIn7DaysProgressBar = new tasksDueProgressBar(totalTasks, tasksDueInSevenDays,
+                    Size.Width / 2, Size.Height / 6, Size.Width / 5, SystemColors.ControlDarkDark, "Tasks Due In 7 Days", 16);
+                FrontPageOverdueTasksProgressBar = new tasksDueProgressBar(totalTasks, overdueTasks,
+                    FrontPageTasksDueIn7DaysProgressBar.Location.X + 270, Size.Height / 6, Size.Width / 5, SystemColors.ControlDarkDark, "Overdue Tasks", 6);
 
             }
         }
 
         private void SearchTaskNameDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string fetchTaskDescription =
+            var fetchTaskDescription =
                 "SELECT TASK_DESCRIPTION FROM dbo.Tasks WHERE TASK_NAME = @taskName";
 
             using (taskDatabaseConnection = new SqlConnection(ConnectionString))
-            using (SqlCommand GetTaskDescription = new SqlCommand(fetchTaskDescription, taskDatabaseConnection))
+            using (var GetTaskDescription = new SqlCommand(fetchTaskDescription, taskDatabaseConnection))
             {
-
                 taskDatabaseConnection.Open();
                 GetTaskDescription.Parameters.AddWithValue("@taskName", searchTaskNameDropdown.SelectedItem);
                 searchTaskDescriptionBox.Text = Convert.ToString(GetTaskDescription.ExecuteScalar());
@@ -409,13 +538,12 @@
         {
             searchTaskNameDropdown.Items.Clear();
 
-            string searchCommand =
+            var searchCommand =
                 "SELECT TASK_NAME FROM dbo.Tasks WHERE TASK_DUE_DATE >= @dueDateStart AND TASK_DUE_DATE <= @dueDateEnd AND COMPLETED = @COMPLETED";
 
             using (taskDatabaseConnection = new SqlConnection(ConnectionString))
-            using (SqlCommand SearchTask = new SqlCommand(searchCommand, taskDatabaseConnection))
+            using (var SearchTask = new SqlCommand(searchCommand, taskDatabaseConnection))
             {
-
                 SearchTask.Parameters.AddWithValue("@dueDateStart", searchTaskStartDateTime.Value);
                 SearchTask.Parameters.AddWithValue("@dueDateEnd", searchTaskEndDateTime.Value);
                 SearchTask.Parameters.AddWithValue("@Completed", 0);
@@ -424,23 +552,17 @@
 
                 using (var reader = SearchTask.ExecuteReader())
                 {
-                    var dropDownStrings = new List<String>();
+                    var dropDownStrings = new List<string>();
                     while (reader.Read())
                         dropDownStrings.Add(reader.GetString(0));
-                    string[] dropDownItems = dropDownStrings.ToArray();
+                    var dropDownItems = dropDownStrings.ToArray();
 
-                    for (int i = 0; i < dropDownItems.Length; ++i)
-                    {
+                    for (var i = 0; i < dropDownItems.Length; ++i)
                         searchTaskNameDropdown.Items.Add(dropDownItems[i]);
-                    }
                     taskDatabaseConnection.Close();
                     if (dropDownItems.Length > 0)
-                    {
                         searchTaskNameDropdown.SelectedItem = dropDownItems[0];
-                    }
                 }
-
-
             }
         }
 
@@ -448,64 +570,49 @@
         {
             removeTaskNameDropDown.Items.Clear();
 
-            string searchCommand =
+            var searchCommand =
                 "SELECT TASK_NAME FROM dbo.Tasks";
 
             if (!string.IsNullOrWhiteSpace(removeTaskNameTextbox.Text))
-            {
-                searchCommand += " WHERE TASK_NAME = @taskName";
-            }
+                searchCommand += " WHERE TASK_NAME LIKE @taskName";
 
             if (removeTaskEndDateTime.Value > removeTaskStartDateTime.Value)
-            {
                 if (!string.IsNullOrWhiteSpace(removeTaskNameTextbox.Text))
-                {
                     searchCommand += " AND TASK_DUE_DATE >= @dueDateStart AND TASK_DUE_DATE <= @dueDateEnd";
-                }
                 else
-                {
                     searchCommand += " WHERE TASK_DUE_DATE >= @dueDateStart AND TASK_DUE_DATE <= @dueDateEnd";
-                }
-            }
 
             using (taskDatabaseConnection = new SqlConnection(ConnectionString))
-            using (SqlCommand RemoveTask = new SqlCommand(searchCommand, taskDatabaseConnection))
+            using (var RemoveTask = new SqlCommand(searchCommand, taskDatabaseConnection))
             {
-
-                RemoveTask.Parameters.AddWithValue("@taskName", removeTaskNameTextbox.Text);
+                RemoveTask.Parameters.AddWithValue("@taskName", "%" + removeTaskNameTextbox.Text + "%");
                 RemoveTask.Parameters.AddWithValue("@dueDateStart", removeTaskStartDateTime.Value);
                 RemoveTask.Parameters.AddWithValue("@dueDateEnd", removeTaskEndDateTime.Value);
 
                 taskDatabaseConnection.Open();
                 using (var reader = RemoveTask.ExecuteReader())
                 {
-                    var dropDownStrings = new List<String>();
+                    var dropDownStrings = new List<string>();
                     while (reader.Read())
                         dropDownStrings.Add(reader.GetString(0));
-                    string[] dropDownItems = dropDownStrings.ToArray();
+                    var dropDownItems = dropDownStrings.ToArray();
 
-                    for (int i = 0; i < dropDownItems.Length; ++i)
-                    {
+                    for (var i = 0; i < dropDownItems.Length; ++i)
                         removeTaskNameDropDown.Items.Add(dropDownItems[i]);
-                    }
 
                     if (dropDownItems.Length > 0)
-                    {
                         removeTaskNameDropDown.SelectedItem = dropDownItems[0];
-                    }
                 }
-
-
             }
         }
 
-        private void MenuSubmitButton_Click(object sender, EventArgs e)
+        private void AddMenuSubmitButton_Click(object sender, EventArgs e)
         {
-            if (addTaskDueDateTime.Value <= DateTime.Now.AddHours(5) || 
-                (addTaskPriority1.Checked == false && addTaskPriority2.Checked == false && 
-                addTaskPriority3.Checked == false && addTaskPriority4.Checked == false && 
-                addTaskPriority5.Checked == false) || 
-                string.IsNullOrWhiteSpace(addTaskNameTextbox.Text) || 
+            if (addTaskDueDateTime.Value <= DateTime.Now.AddHours(5) ||
+                addTaskPriority1.Checked == false && addTaskPriority2.Checked == false &&
+                addTaskPriority3.Checked == false && addTaskPriority4.Checked == false &&
+                addTaskPriority5.Checked == false ||
+                string.IsNullOrWhiteSpace(addTaskNameTextbox.Text) ||
                 string.IsNullOrWhiteSpace(addTaskNameTextbox.Text))
             {
                 if (string.IsNullOrWhiteSpace(addTaskDescriptionTextbox.Text))
@@ -529,31 +636,25 @@
                 }
 
                 if (addTaskDueDateTime.Value <= DateTime.Now.AddHours(5) &&
-                (addTaskPriority1.Checked.Equals(true) || addTaskPriority2.Checked.Equals(true) ||
-                addTaskPriority3.Checked.Equals(true) || addTaskPriority4.Checked.Equals(true) ||
-                addTaskPriority5.Checked.Equals(true)) && !string.IsNullOrWhiteSpace(addTaskNameTextbox.Text) &&
-                !string.IsNullOrWhiteSpace(addTaskNameTextbox.Text))
+                    (addTaskPriority1.Checked.Equals(true) || addTaskPriority2.Checked.Equals(true) ||
+                     addTaskPriority3.Checked.Equals(true) || addTaskPriority4.Checked.Equals(true) ||
+                     addTaskPriority5.Checked.Equals(true)) && !string.IsNullOrWhiteSpace(addTaskNameTextbox.Text) &&
+                    !string.IsNullOrWhiteSpace(addTaskNameTextbox.Text))
                 {
                     addDateTimeAlert.Show();
                     dateTimealertConfirmation.Show();
                 }
 
                 if (!string.IsNullOrWhiteSpace(addTaskDescriptionTextbox.Text))
-                {
                     addTaskDescriptionAlert.Hide();
-                }
 
                 if (!string.IsNullOrWhiteSpace(addTaskNameTextbox.Text))
-                {
                     addTaskNameAlert.Hide();
-                }
 
                 if (addTaskPriority1.Checked.Equals(true) || addTaskPriority2.Checked.Equals(true) ||
-                addTaskPriority3.Checked.Equals(true) || addTaskPriority4.Checked.Equals(true) ||
-                addTaskPriority5.Checked.Equals(true))
-                {
+                    addTaskPriority3.Checked.Equals(true) || addTaskPriority4.Checked.Equals(true) ||
+                    addTaskPriority5.Checked.Equals(true))
                     addTaskPriorityAlert.Hide();
-                }
 
                 if (addTaskDueDateTime.Value > DateTime.Now.AddHours(5))
                 {
@@ -562,12 +663,12 @@
                 }
             }
             else
-            { 
-                string insertCommand = 
+            {
+                var insertCommand =
                     "INSERT INTO dbo.Tasks " +
                     "Values (@taskName, @taskDescription, @taskType, @priority, @dateTime, @completed)";
                 using (taskDatabaseConnection = new SqlConnection(ConnectionString))
-                using (SqlCommand AddTask = new SqlCommand(insertCommand, taskDatabaseConnection))
+                using (var AddTask = new SqlCommand(insertCommand, taskDatabaseConnection))
                 {
                     try
                     {
@@ -591,9 +692,10 @@
             }
         }
 
-        private void AddTaskPriority5_CheckedChanged(object sender, EventArgs e)
+        private void AddTaskPriority_CheckedChanged(object sender, EventArgs e)
         {
-            if(addTaskPriority5.Checked)
+            var checkBoxName = sender as CheckBox;
+            if (checkBoxName == addTaskPriority5 && addTaskPriority5.Checked)
             {
                 addTaskPriority4.Checked = false;
                 addTaskPriority3.Checked = false;
@@ -601,11 +703,7 @@
                 addTaskPriority1.Checked = false;
                 prioritySelection = 5;
             }
-        }
-  
-        private void AddTaskPriority4_CheckedChanged(object sender, EventArgs e)
-        {
-            if (addTaskPriority4.Checked)
+            else if (checkBoxName == addTaskPriority4 && addTaskPriority4.Checked)
             {
                 addTaskPriority5.Checked = false;
                 addTaskPriority3.Checked = false;
@@ -613,11 +711,7 @@
                 addTaskPriority1.Checked = false;
                 prioritySelection = 4;
             }
-        }
-
-        private void AddTaskPriority3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (addTaskPriority3.Checked)
+            else if (checkBoxName == addTaskPriority3 && addTaskPriority3.Checked)
             {
                 addTaskPriority5.Checked = false;
                 addTaskPriority4.Checked = false;
@@ -625,11 +719,7 @@
                 addTaskPriority1.Checked = false;
                 prioritySelection = 3;
             }
-        }
-
-        private void AddTaskPriority2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (addTaskPriority2.Checked)
+            else if (checkBoxName == addTaskPriority2 && addTaskPriority2.Checked)
             {
                 addTaskPriority5.Checked = false;
                 addTaskPriority4.Checked = false;
@@ -637,11 +727,7 @@
                 addTaskPriority1.Checked = false;
                 prioritySelection = 2;
             }
-        }
-
-        private void AddTaskPriority1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (addTaskPriority1.Checked)
+            else if (checkBoxName == addTaskPriority1 && addTaskPriority1.Checked)
             {
                 addTaskPriority5.Checked = false;
                 addTaskPriority4.Checked = false;
@@ -668,8 +754,8 @@
             addTaskDescriptionAlert.Hide();
             addDateTimeAlert.Hide();
             prioritySelection = 0;
-            addTaskNameTextbox.Text = "";
-            addTaskDescriptionTextbox.Text = "";
+            addTaskNameTextbox.Clear();
+            addTaskDescriptionTextbox.Clear();
             addTaskDueDateTime.Value = DateTime.Now;
             addTaskTypeDropDown.SelectedItem = addTaskTypeDropDown.Items[0];
             addTaskPriority1.Checked = false;
@@ -679,58 +765,24 @@
             addTaskPriority5.Checked = false;
         }
 
-        private void addButton_Hover(object sender, EventArgs e)
+        private void HomeMenuButton_Hover(object sender, EventArgs e)
         {
-            if(menuShow)
-            {
-                clearAllMenus();
-                menuShow = false;
-            }
-            addMenu.Show();
-            menuShow = true;
-        }
-
-        private void removeButton_Hover(object sender, EventArgs e)
-        {
+            var buttonName = sender as Button;
             if (menuShow)
             {
                 clearAllMenus();
                 menuShow = false;
             }
-            removeMenu.Show();
-            menuShow = true;
-        }
-
-        private void searchButton_Hover(object sender, EventArgs e)
-        {
-            if (menuShow)
-            {
-                clearAllMenus();
-                menuShow = false;
-            }
-            searchMenu.Show();
-            menuShow = true;
-        }
-
-        private void reportsButton_Hover(object sender, EventArgs e)
-        {
-            if (menuShow)
-            {
-                clearAllMenus();
-                menuShow = false;
-            }
-            reportsMenu.Show();
-            menuShow = true;
-        }
-
-        private void settingsButton_Hover(object sender, EventArgs e)
-        {
-            if (menuShow)
-            {
-                clearAllMenus();
-                menuShow = false;
-            }
-            settingsMenu.Show();
+            if (buttonName == removeButton)
+                removeMenu.Show();
+            else if (buttonName == addButton)
+                addMenu.Show();
+            else if (buttonName == searchButton)
+                searchMenu.Show();
+            else if (buttonName == reportsButton)
+                reportsMenu.Show();
+            else
+                settingsMenu.Show();
             menuShow = true;
         }
 

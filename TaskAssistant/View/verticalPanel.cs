@@ -1,16 +1,16 @@
-﻿namespace WindowsFormsApplication1.View
-{
-    using System.Windows.Forms;
-    using System.Drawing;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
-    class verticalPanel : Panel
+namespace WindowsFormsApplication1.View
+{
+    internal class verticalPanel : Panel
     {
-        internal verticalPanel(string panelName, int panelXLocation, int panelYLocation, int panelSizeX, int panelSizeY) 
+        internal verticalPanel(string panelName, int panelXLocation, int panelYLocation, int panelSizeX, int panelSizeY)
         {
-            this.BackColor = Color.FromArgb(10, 80, 161);
-            this.Location = new Point(panelXLocation, panelYLocation);
-            this.Name = panelName;
-            this.Size = new Size(panelSizeX, panelSizeY);
+            BackColor = Color.FromArgb(10, 80, 161);
+            Location = new Point(panelXLocation, panelYLocation);
+            Name = panelName;
+            Size = new Size(panelSizeX, panelSizeY);
         }
     }
 }

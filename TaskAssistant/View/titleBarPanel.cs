@@ -1,16 +1,17 @@
-﻿namespace WindowsFormsApplication1.View
-{
-    using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
-    class titleBarPanel : Panel
+namespace WindowsFormsApplication1.View
+{
+    internal class titleBarPanel : Panel
     {
         internal titleBarPanel(string panelName, int panelSizeWidth, int panelSizeHeight) //accept name as parameter
         {
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Location = new System.Drawing.Point(0, 0);
-            this.Margin = new Padding(0);
-            this.Name = panelName;
-            this.Size = new System.Drawing.Size(panelSizeWidth, panelSizeHeight);
+            BackColor = SystemColors.ControlDarkDark;
+            Location = new Point(0, 0);
+            Margin = new Padding(0);
+            Name = panelName;
+            Size = new Size(panelSizeWidth, panelSizeHeight);
         }
     }
 }

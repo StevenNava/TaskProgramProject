@@ -1,23 +1,23 @@
-﻿namespace WindowsFormsApplication1.View
-{
-    using System.Windows.Forms;
-    using System.Drawing;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
+namespace WindowsFormsApplication1.View
+{
     internal class informationDropdown : ComboBox
     {
         internal informationDropdown(string dropDownName, int dropDownLocationX, int dropDownLocationY)
         {
-            this.Items.AddRange(new object[]
+            Items.AddRange(new object[]
             {
                 "Work",
                 "School",
                 "Personal",
                 "Family"
             });
-            this.Name = dropDownName;
-            this.Location = new Point(dropDownLocationX, dropDownLocationY);
-            this.SelectedItem = this.Items[0];
-            this.Size = new Size(332, 31);
+            Name = dropDownName;
+            Location = new Point(dropDownLocationX, dropDownLocationY);
+            SelectedItem = Items[0];
+            Size = new Size(332, 31);
         }
     }
 }

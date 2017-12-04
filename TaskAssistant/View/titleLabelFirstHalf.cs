@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace WindowsFormsApplication1.View
 {
-    class titleLabelFirstHalf : Label
+    internal class titleLabelFirstHalf : Label
     {
-        internal titleLabelFirstHalf(string labelName, string labelText, int labelLocationX, int labelLocationY) //accept name, text, location as parameter (needed location ~ (31,33)
+        internal titleLabelFirstHalf(string labelName, string labelText, int labelLocationX,
+            int labelLocationY) //accept name, text, location as parameter (needed location ~ (31,33)
         {
-            this.AutoSize = true;
-            this.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = SystemColors.ControlLightLight;
-            this.Name = labelName;
-            this.Text = labelText;
-            this.Location = new Point(labelLocationX, labelLocationY);
+            AutoSize = true;
+            Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ForeColor = SystemColors.ControlLightLight;
+            Name = labelName;
+            Text = labelText;
+            Location = new Point(labelLocationX, labelLocationY);
         }
     }
 }

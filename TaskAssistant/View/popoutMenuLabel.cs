@@ -1,8 +1,8 @@
-﻿namespace WindowsFormsApplication1.View
-{
-    using System.Windows.Forms;
-    using System.Drawing;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
+namespace WindowsFormsApplication1.View
+{
     internal class popoutMenuLabel : Label
     {
         internal popoutMenuLabel(int labelSizeWidth, int labelSizeHeight, string labelName, string labelText)

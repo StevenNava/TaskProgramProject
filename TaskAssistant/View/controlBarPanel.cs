@@ -1,16 +1,16 @@
-﻿namespace WindowsFormsApplication1.View
-{
-    using System.Windows.Forms;
-    using System.Drawing;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
-    class controlBarPanel : Panel
+namespace WindowsFormsApplication1.View
+{
+    internal class controlBarPanel : Panel
     {
         internal controlBarPanel(string panelName, int panelSizeX, int panelSizeY) //accept name as parameter
         {
-            this.BackColor = SystemColors.ControlDarkDark;
-            this.Location = new Point(0, 0);
-            this.Name = panelName;
-            this.Size = new Size(panelSizeX, panelSizeY);
+            BackColor = SystemColors.ControlDarkDark;
+            Location = new Point(0, 0);
+            Name = panelName;
+            Size = new Size(panelSizeX, panelSizeY);
         }
     }
 }

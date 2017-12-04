@@ -1,17 +1,17 @@
-﻿namespace WindowsFormsApplication1.View
-{
-    using System.Windows.Forms;
-    using System.Drawing;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
+namespace WindowsFormsApplication1.View
+{
     internal class menuDateTimePicker : DateTimePicker
     {
         internal menuDateTimePicker(string dateTimePickerName, int dateTimePickerLocationX, int dateTimePickerLocationY)
         {
-            this.Format = DateTimePickerFormat.Custom;
-            this.CustomFormat = "ddd, MM/dd/yyyy hh:mm:ss tt";
-            this.Location = new Point(dateTimePickerLocationX, dateTimePickerLocationY);
-            this.Name = dateTimePickerName;
-            this.Size = new Size(332, 31);
+            Format = DateTimePickerFormat.Custom;
+            CustomFormat = "ddd, MM/dd/yyyy hh:mm:ss tt";
+            Location = new Point(dateTimePickerLocationX, dateTimePickerLocationY);
+            Name = dateTimePickerName;
+            Size = new Size(332, 31);
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿namespace WindowsFormsApplication1.View
-{
-    using System.Drawing;
-    using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
+namespace WindowsFormsApplication1.View
+{
     internal class informationTextbox : RichTextBox
     {
         internal informationTextbox(string textboxName, int textboxLocationX, int textboxLocationY)
@@ -14,7 +14,8 @@
             Size = new Size(332, 31);
         }
 
-        internal informationTextbox(string textboxName, int textboxLocationX, int textboxLocationY, int dropDownSizeWidth, int dropDownSizeHeight)
+        internal informationTextbox(string textboxName, int textboxLocationX, int textboxLocationY,
+            int dropDownSizeWidth, int dropDownSizeHeight)
         {
             BorderStyle = BorderStyle.FixedSingle;
             BackColor = Color.White;

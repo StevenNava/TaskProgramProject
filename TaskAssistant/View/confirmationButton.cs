@@ -1,8 +1,8 @@
-﻿namespace WindowsFormsApplication1.View
-{
-    using System.Windows.Forms;
-    using System.Drawing;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
+namespace WindowsFormsApplication1.View
+{
     internal class ConfirmationButton : Button
     {
         internal ConfirmationButton(string formLocation, string buttonText, int buttonLocationX, int buttonLocationY)
@@ -24,7 +24,8 @@
             }
         }
 
-        internal ConfirmationButton(string buttonText, int buttonLocationX, int buttonLocationY, int buttonSizeWidth, int buttonSizeHeight)
+        internal ConfirmationButton(string buttonText, int buttonLocationX, int buttonLocationY, int buttonSizeWidth,
+            int buttonSizeHeight)
         {
             BackColor = Color.FromArgb(5, 113, 176);
             FlatAppearance.BorderSize = 0;

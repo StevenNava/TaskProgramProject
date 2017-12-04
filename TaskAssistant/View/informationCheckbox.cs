@@ -1,19 +1,20 @@
-﻿namespace WindowsFormsApplication1.View
-{
-    using System.Windows.Forms;
-    using System.Drawing;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
+namespace WindowsFormsApplication1.View
+{
     internal class informationCheckbox : CheckBox
     {
-        internal informationCheckbox(string checkboxName, string checkboxText, int checkboxLocationX, int checkboxLocationY)
+        internal informationCheckbox(string checkboxName, string checkboxText, int checkboxLocationX,
+            int checkboxLocationY)
         {
-            this.AutoSize = true;
-            this.CheckAlign = ContentAlignment.TopCenter;
-            this.ForeColor = Color.White;
-            this.Location = new Point(checkboxLocationX, checkboxLocationY);
-            this.Text = checkboxText;
-            this.Name = checkboxName;
-            this.Size = new Size(25, 40);
+            AutoSize = true;
+            CheckAlign = ContentAlignment.TopCenter;
+            ForeColor = Color.White;
+            Location = new Point(checkboxLocationX, checkboxLocationY);
+            Text = checkboxText;
+            Name = checkboxName;
+            Size = new Size(25, 40);
         }
     }
 }

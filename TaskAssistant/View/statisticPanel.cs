@@ -1,27 +1,31 @@
-﻿using System.Runtime.InteropServices.ComTypes;
+﻿using System;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.View
 {
-    using System;
-    using System.Drawing;
-    using System.Windows.Forms;
-    using System.Data.SqlClient;
     internal class statisticPanel : Panel
     {
-        private int totalTasks;
-        private int completedTasks;
-        private int tasksDueInThreeDays;
-        private SqlConnection taskDatabaseConnection;
-        private string ConnectionString =
-        ("Data Source=localhost; " +
-         "Initial Catalog=TaskAssistant; " +
-         "user id=test; " +
-         "password=test; " +
-         "connection timeout=30");
+        private readonly string ConnectionString =
+            "Data Source=localhost; " +
+            "Initial Catalog=TaskAssistant; " +
+            "user id=test; " +
+            "password=test; " +
+            "connection timeout=30";
 
-        tasksDueIn3DaysProgressBar tasksDueIn3Days;
-        tasksCompletedProgressBar tasksCompleted;
-        internal statisticPanel(Color panelBackground, int panelXLocation, int panelYLocation, int panelSizeX, int panelSizeY)
+        private int completedTasks;
+
+        private SqlConnection taskDatabaseConnection;
+        private tasksCompletedProgressBar tasksCompleted;
+
+        private tasksDueProgressBar tasksDueIn3Days;
+        private int tasksDueInThreeDays;
+        private int totalTasks;
+        private int totalTasksNotCompleted;
+
+        internal statisticPanel(Color panelBackground, int panelXLocation, int panelYLocation, int panelSizeX,
+            int panelSizeY)
         {
             Name = "statisticPanel";
             BackColor = panelBackground;
@@ -34,19 +38,23 @@ namespace WindowsFormsApplication1.View
 
         internal void createStatisticPanelProgressBars()
         {
-            string fetchTotalTasks =
+            var fetchTotalTasks =
                 "SELECT COUNT(*) FROM dbo.Tasks";
 
-            String fetchTotalCompletedTasks =
+            var fetchTotalTasksNotComplete =
+                "SELECT COUNT(*) FROM dbo.Tasks WHERE Completed != @completedTasks";
+
+            var fetchTotalCompletedTasks =
                 "SELECT COUNT(*) FROM dbo.Tasks WHERE Completed = @completedTasks";
 
-            String fetchTasksDueIn3Days =
+            var fetchTasksDueIn3Days =
                 "SELECT COUNT(*) FROM dbo.Tasks WHERE Task_Due_Date <= @dueDate";
 
             using (taskDatabaseConnection = new SqlConnection(ConnectionString))
-            using (SqlCommand GetTotalTasks = new SqlCommand(fetchTotalTasks, taskDatabaseConnection))
-            using (SqlCommand GetNumberCompletedTasks = new SqlCommand(fetchTotalCompletedTasks, taskDatabaseConnection))
-            using (SqlCommand GetTasksDueIn3Days = new SqlCommand(fetchTasksDueIn3Days, taskDatabaseConnection))
+            using (var GetTotalTasks = new SqlCommand(fetchTotalTasks, taskDatabaseConnection))
+            using (var GetTotalTasksNotCompleted = new SqlCommand(fetchTotalTasksNotComplete, taskDatabaseConnection))
+            using (var GetNumberCompletedTasks = new SqlCommand(fetchTotalCompletedTasks, taskDatabaseConnection))
+            using (var GetTasksDueIn3Days = new SqlCommand(fetchTasksDueIn3Days, taskDatabaseConnection))
             {
                 try
                 {
@@ -58,16 +66,19 @@ namespace WindowsFormsApplication1.View
                 }
 
                 GetNumberCompletedTasks.Parameters.AddWithValue("@completedTasks", 1);
+                GetTotalTasksNotCompleted.Parameters.AddWithValue("@completedTasks", 1);
                 GetTasksDueIn3Days.Parameters.AddWithValue("@dueDate", DateTime.Now.AddDays(3));
 
                 totalTasks = Convert.ToInt32(GetTotalTasks.ExecuteScalar());
+                totalTasksNotCompleted = Convert.ToInt32(GetTotalTasksNotCompleted.ExecuteScalar());
                 completedTasks = Convert.ToInt32(GetNumberCompletedTasks.ExecuteScalar());
-                Console.WriteLine(completedTasks);
                 tasksDueInThreeDays = Convert.ToInt32(GetTasksDueIn3Days.ExecuteScalar());
             }
 
-            tasksDueIn3Days = new tasksDueIn3DaysProgressBar(totalTasks, tasksDueInThreeDays, this.Size.Width - 192, 50, this.Size.Width - 39);
-            tasksCompleted = new tasksCompletedProgressBar(totalTasks, completedTasks, tasksDueIn3Days.Location.X, tasksDueIn3Days.Location.Y + 200, this.Size.Width - 39);
+            tasksDueIn3Days = new tasksDueProgressBar(totalTasks, tasksDueInThreeDays, Size.Width - 192, 50,
+                Size.Width - 39);
+            tasksCompleted = new tasksCompletedProgressBar(totalTasksNotCompleted, completedTasks, tasksDueIn3Days.Location.X,
+                tasksDueIn3Days.Location.Y + 200, Size.Width - 39);
         }
     }
 }
