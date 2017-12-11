@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.View
 {
-    internal class statisticPanel : Panel
+    internal class StatisticPanel : Panel
     {
         private readonly string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename="+System.Environment.CurrentDirectory+"\\Tasks.mdf;Integrated Security=True";
            /* "Data Source=localhost; " +
@@ -17,14 +17,14 @@ namespace WindowsFormsApplication1.View
         private int completedTasks;
 
         private SqlConnection taskDatabaseConnection;
-        private tasksCompletedProgressBar tasksCompleted;
+        private TasksCompletedProgressBar tasksCompleted;
 
-        private tasksDueProgressBar tasksDueIn3Days;
+        private TasksDueProgressBar tasksDueIn3Days;
         private int tasksDueInThreeDays;
         private int totalTasks;
         private int totalTasksNotCompleted;
 
-        internal statisticPanel(Color panelBackground, int panelXLocation, int panelYLocation, int panelSizeX,
+        internal StatisticPanel(Color panelBackground, int panelXLocation, int panelYLocation, int panelSizeX,
             int panelSizeY)
         {
             Name = "statisticPanel";
@@ -75,9 +75,9 @@ namespace WindowsFormsApplication1.View
                 tasksDueInThreeDays = Convert.ToInt32(GetTasksDueIn3Days.ExecuteScalar());
             }
 
-            tasksDueIn3Days = new tasksDueProgressBar(totalTasks, tasksDueInThreeDays, Size.Width - 192, 50,
+            tasksDueIn3Days = new TasksDueProgressBar(totalTasks, tasksDueInThreeDays, Size.Width - 192, 50,
                 Size.Width - 39);
-            tasksCompleted = new tasksCompletedProgressBar(totalTasksNotCompleted, completedTasks, tasksDueIn3Days.Location.X,
+            tasksCompleted = new TasksCompletedProgressBar(totalTasks, completedTasks, tasksDueIn3Days.Location.X,
                 tasksDueIn3Days.Location.Y + 200, Size.Width - 39);
         }
     }

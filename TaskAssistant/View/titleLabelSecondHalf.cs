@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.View
 {
-    internal class titleLabelSecondHalf : Label
+    internal class TitleLabelSecondHalf : Label
     {
-        internal titleLabelSecondHalf(string labelName, string labelText, int labelLocationX,
+        internal TitleLabelSecondHalf(string labelName, string labelText, int labelLocationX,
             int labelLocationY) //accept name, text, location as parameter (needed location ~ (31,33)
         {
             AutoSize = true;

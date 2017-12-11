@@ -4,13 +4,13 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.View
 {
-    internal class progressBar : UserControl
+    internal class ProgressBar : UserControl
     {
         private readonly int dueIn3Days;
         private readonly int progress;
         private readonly int totalTasks;
 
-        internal progressBar(string progressBarName, int progressPercentage, int progressBarLocationX,
+        internal ProgressBar(string progressBarName, int progressPercentage, int progressBarLocationX,
             int progressBarLocationY)
         {
             progress = progressPercentage;
@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1.View
             Paint += progressBar_Load;
         }
 
-        internal progressBar(string progressBarName, double dueIn3Days, double totalTasks, int progressBarLocationX,
+        internal ProgressBar(string progressBarName, double dueIn3Days, double totalTasks, int progressBarLocationX,
             int progressBarLocationY)
         {
             this.dueIn3Days = (int) dueIn3Days;

@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.View
 {
-    internal class informationCheckbox : CheckBox
+    internal class InformationCheckbox : CheckBox
     {
-        internal informationCheckbox(string checkboxName, string checkboxText, int checkboxLocationX,
+        internal InformationCheckbox(string checkboxName, string checkboxText, int checkboxLocationX,
             int checkboxLocationY)
         {
             AutoSize = true;

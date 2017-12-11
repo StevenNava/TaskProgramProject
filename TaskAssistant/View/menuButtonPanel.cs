@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.View
 {
-    internal class menuButtonPanel : Panel
+    internal class MenuButtonPanel : Panel
     {
-        private menuButtonPanel(string panelName) //accept name as parameter
+        private MenuButtonPanel(string panelName) //accept name as parameter
         {
             BackColor = Color.White;
             Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);

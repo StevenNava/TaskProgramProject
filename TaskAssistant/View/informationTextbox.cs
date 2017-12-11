@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.View
 {
-    internal class informationTextbox : RichTextBox
+    internal class InformationTextbox : RichTextBox
     {
-        internal informationTextbox(string textboxName, int textboxLocationX, int textboxLocationY)
+        internal InformationTextbox(string textboxName, int textboxLocationX, int textboxLocationY)
         {
             BorderStyle = BorderStyle.FixedSingle;
             BackColor = Color.White;
@@ -14,7 +14,7 @@ namespace WindowsFormsApplication1.View
             Size = new Size(332, 31);
         }
 
-        internal informationTextbox(string textboxName, int textboxLocationX, int textboxLocationY,
+        internal InformationTextbox(string textboxName, int textboxLocationX, int textboxLocationY,
             int dropDownSizeWidth, int dropDownSizeHeight)
         {
             BorderStyle = BorderStyle.FixedSingle;

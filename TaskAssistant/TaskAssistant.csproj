@@ -102,8 +102,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompletedTasks.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompletedTasks.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ConfirmationForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OverdueTasks.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OverdueTasks.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,6 +121,12 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\CompletedTasksReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\OverdueTasksReport.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reporting\TasksDueIn7DaysReport.cs">
       <SubType>Form</SubType>
@@ -149,70 +165,70 @@
     <Compile Include="View\AlertExclamationImage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\addMenu.cs">
+    <Compile Include="View\HomeScreen Menus\AddMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\SettingMenu.cs">
+    <Compile Include="View\HomeScreen Menus\SettingMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\reportMenu.cs">
+    <Compile Include="View\HomeScreen Menus\ReportMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\searchMenu.cs">
+    <Compile Include="View\HomeScreen Menus\SearchMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\removeMenu.cs">
+    <Compile Include="View\HomeScreen Menus\RemoveMenu.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\InstructionalTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\generalBlankDropdown.cs">
+    <Compile Include="View\GeneralBlankDropdown.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\statisticPanel.cs">
+    <Compile Include="View\StatisticPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\tasksDueProgressBar.cs">
+    <Compile Include="View\TasksDueProgressBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\tasksCompletedProgressBar.cs">
+    <Compile Include="View\TasksCompletedProgressBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\progressBar.cs">
+    <Compile Include="View\ProgressBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\informationCheckbox.cs">
+    <Compile Include="View\InformationCheckbox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\informationDropdown.cs">
+    <Compile Include="View\InformationDropdown.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\menuLabel.cs">
+    <Compile Include="View\MenuLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\menuDateTimePicker.cs">
+    <Compile Include="View\MenuDateTimePicker.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\popoutMenuLabel.cs">
+    <Compile Include="View\PopoutMenuLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\informationTextbox.cs">
+    <Compile Include="View\InformationTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\HomeScreenMenuPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\controlBarPanel.cs">
+    <Compile Include="View\ControlBarPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\controlBarButton.cs">
+    <Compile Include="View\ControlBarButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\programMainForm.cs">
+    <Compile Include="View\MainProgramForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\titleLabelSecondHalf.cs">
+    <Compile Include="View\TitleLabelSecondHalf.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\ViewResource.Designer.cs">
@@ -220,22 +236,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ViewResource.resx</DependentUpon>
     </Compile>
-    <Compile Include="View\titleLabelFirstHalf.cs">
+    <Compile Include="View\TitleLabelFirstHalf.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\confirmationButton.cs">
+    <Compile Include="View\ConfirmationButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\homeScreenMenuButton.cs">
+    <Compile Include="View\HomeScreeenMenuButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\titleBarPanel.cs">
+    <Compile Include="View\TitalBarPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\verticalPanel.cs">
+    <Compile Include="View\VerticalPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\menuButtonPanel.cs">
+    <Compile Include="View\MenuButtonPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WindowsService.cs">
@@ -260,6 +276,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reporting\CompletedTasksReport.resx">
+      <DependentUpon>CompletedTasksReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\OverdueTasks.rdlc" />
+    <EmbeddedResource Include="Reporting\OverdueTasksReport.resx">
+      <DependentUpon>OverdueTasksReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\CompletedTasks.rdlc" />
     <EmbeddedResource Include="Reporting\TasksDueIn7DaysReport.resx">
       <DependentUpon>TasksDueIn7DaysReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,14 +296,14 @@
       <DependentUpon>FullTask_Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporting\TasksDueIn3Days.rdlc" />
-    <EmbeddedResource Include="View\programMainForm.resx">
-      <DependentUpon>programMainForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\MainProgramForm.resx">
+      <DependentUpon>MainProgramForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\tasksCompletedProgressBar.resx">
-      <DependentUpon>tasksCompletedProgressBar.cs</DependentUpon>
+    <EmbeddedResource Include="View\TasksCompletedProgressBar.resx">
+      <DependentUpon>TasksCompletedProgressBar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\tasksDueProgressBar.resx">
-      <DependentUpon>tasksDueProgressBar.cs</DependentUpon>
+    <EmbeddedResource Include="View\TasksDueProgressBar.resx">
+      <DependentUpon>TasksDueProgressBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ViewResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -301,6 +325,28 @@
   <ItemGroup>
     <None Include="app.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="CompletedTasks.xsc">
+      <DependentUpon>CompletedTasks.xsd</DependentUpon>
+    </None>
+    <None Include="CompletedTasks.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CompletedTasks.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CompletedTasks.xss">
+      <DependentUpon>CompletedTasks.xsd</DependentUpon>
+    </None>
+    <None Include="OverdueTasks.xsc">
+      <DependentUpon>OverdueTasks.xsd</DependentUpon>
+    </None>
+    <None Include="OverdueTasks.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OverdueTasks.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OverdueTasks.xss">
+      <DependentUpon>OverdueTasks.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -386,10 +432,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Tasks.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Tasks_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Tasks.mdf</DependentUpon>
     </Content>
   </ItemGroup>

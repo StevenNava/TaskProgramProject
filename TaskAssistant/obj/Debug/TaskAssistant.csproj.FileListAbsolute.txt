@@ -362,3 +362,5 @@ C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHS\Microsoft.R
 C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.TasksDueIn7DaysReport.resources
 C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.TasksDueIn3DaysReport.resources
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.OverdueTasksReport.resources
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.CompletedTasksReport.resources

@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.View
 {
-    internal class controlBarPanel : Panel
+    internal class ControlBarPanel : Panel
     {
-        internal controlBarPanel(string panelName, int panelSizeX, int panelSizeY) //accept name as parameter
+        internal ControlBarPanel(string panelName, int panelSizeX, int panelSizeY) //accept name as parameter
         {
             BackColor = SystemColors.ControlDarkDark;
             Location = new Point(0, 0);

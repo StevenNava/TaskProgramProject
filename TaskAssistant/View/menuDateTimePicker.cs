@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.View
 {
-    internal class menuDateTimePicker : DateTimePicker
+    internal class MenuDateTimePicker : DateTimePicker
     {
-        internal menuDateTimePicker(string dateTimePickerName, int dateTimePickerLocationX, int dateTimePickerLocationY)
+        internal MenuDateTimePicker(string dateTimePickerName, int dateTimePickerLocationX, int dateTimePickerLocationY)
         {
             Format = DateTimePickerFormat.Custom;
             CustomFormat = "ddd, MM/dd/yyyy hh:mm:ss tt";

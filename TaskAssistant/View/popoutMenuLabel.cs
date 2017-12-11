@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.View
 {
-    internal class popoutMenuLabel : Label
+    internal class PopoutMenuLabel : Label
     {
-        internal popoutMenuLabel(int labelSizeWidth, int labelSizeHeight, string labelName, string labelText)
+        internal PopoutMenuLabel(int labelSizeWidth, int labelSizeHeight, string labelName, string labelText)
         {
             AutoSize = false;
             Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);

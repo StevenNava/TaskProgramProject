@@ -7,7 +7,7 @@ namespace WindowsFormsApplication1
 {
     internal class ConfirmationForm : Form
     {
-        private readonly popoutMenuLabel confirmationButtonLabel;
+        private readonly PopoutMenuLabel confirmationButtonLabel;
         private readonly ConfirmationButton menuOKButton;
 
         internal ConfirmationForm(string formName)
@@ -21,12 +21,12 @@ namespace WindowsFormsApplication1
                 Size.Height / 4);
             menuOKButton.Click += MenuOKButton_Click;
             Controls.Add(menuOKButton);
-            confirmationButtonLabel = new popoutMenuLabel(Size.Width, Size.Height - Size.Height / 5,
+            confirmationButtonLabel = new PopoutMenuLabel(Size.Width, Size.Height - Size.Height / 5,
                 "confirmationButtonLabel",
                 "You must enter all the required information");
 
             if (Name == "dateTimeConfirmation")
-                confirmationButtonLabel = new popoutMenuLabel(Size.Width, Size.Height - Size.Height / 5,
+                confirmationButtonLabel = new PopoutMenuLabel(Size.Width, Size.Height - Size.Height / 5,
                     "dateTimeConfirmationButtonLabel", "Tasks must be set further than 5 hours out");
             Controls.Add(confirmationButtonLabel);
         }

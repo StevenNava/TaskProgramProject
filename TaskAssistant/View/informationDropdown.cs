@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.View
 {
-    internal class informationDropdown : ComboBox
+    internal class InformationDropdown : ComboBox
     {
-        internal informationDropdown(string dropDownName, int dropDownLocationX, int dropDownLocationY)
+        internal InformationDropdown(string dropDownName, int dropDownLocationX, int dropDownLocationY)
         {
             Items.AddRange(new object[]
             {
