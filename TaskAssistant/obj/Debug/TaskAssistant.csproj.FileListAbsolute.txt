@@ -111,8 +111,254 @@ C:\Users\Steven\Documents\Visual Studio 2017\TaskAssistant\TaskAssistant\bin\Deb
 C:\Users\Steven\Documents\Visual Studio 2017\TaskAssistant\TaskAssistant\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\Steven\Documents\Visual Studio 2017\TaskAssistant\TaskAssistant\obj\Debug\TaskAssistant.csproj.WindowsFormsApplication1.exe.config
 C:\Users\Steven\Documents\Visual Studio 2017\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.ConfirmationForm.resources
-C:\Users\Steven\Documents\Visual Studio 2017\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.FullReportForm.resources
-C:\Users\Steven\Documents\Visual Studio 2017\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.CompletedTasksReportForm.resources
 C:\Users\Steven\Documents\Visual Studio 2017\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.View.tasksDueProgressBar.resources
-C:\Users\Steven\Documents\Visual Studio 2017\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.OverdueTasksReport.resources
 C:\Users\Steven\Documents\Visual Studio 2017\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.TasksDueIn3DaysReport.resources
+C:\Users\Steven\Documents\Visual Studio 2017\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.FullTask_Report.resources
+C:\Users\Steven\Documents\Visual Studio 2017\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.OverdueTasksReport.resources
+C:\Users\Steven\Documents\Visual Studio 2017\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.TasksDueIn7DaysReport.resources
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\WindowsFormsApplication1.exe.manifest
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\WindowsFormsApplication1.application
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\WindowsFormsApplication1.exe
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\WindowsFormsApplication1.pdb
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.ReportViewer.WebDesign.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.ReportViewer.WebForms.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.ReportViewer.Winforms.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\EnvDTE.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.Build.Framework.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\stdole.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.VSHelp.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Shell.Interop.9.0.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.ProjectAggregator.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.ComponentModelHost.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Debugger.InteropA.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\EnvDTE80.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.Build.Tasks.Core.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Data.Services.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\VSLangProj.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Shell.Interop.11.0.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Data.Core.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Shell.Interop.10.0.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\VSLangProj80.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.ManagedInterfaces.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.WCFReference.Interop.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.11.0.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Newtonsoft.Json.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.GraphModel.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.MSXML.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.Build.Utilities.Core.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.10.0.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\VSLangProj2.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\de\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\es\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\fr\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\it\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ja\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ko\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\pt\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ru\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\zh-CHS\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\zh-CHT\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\de\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\fr\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\it\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ja\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ko\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\pt\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ru\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\cs\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\de\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\es\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\fr\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\it\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ja\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ko\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\pl\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\pt\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ru\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\zh-Hans\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\zh-Hant\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\TaskAssistant.csprojResolveAssemblyReference.cache
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.exe.config
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.ConfirmationForm.resources
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.TasksDueIn7DaysReport.resources
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.FullTask_Report.resources
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.OverdueTasksReport.resources
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.TasksDueIn3DaysReport.resources
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.View.ProgramMainForm.resources
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.View.tasksCompletedProgressBar.resources
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.View.tasksDueProgressBar.resources
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.View.ViewResource.resources
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\TaskAssistant.csproj.GenerateResource.Cache
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\TaskAssistant.csproj.CoreCompileInputs.cache
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.exe.manifest
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.application
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.exe
+C:\Program Files\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\WindowsFormsApplication1.exe.manifest
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\WindowsFormsApplication1.application
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.ReportViewer.WebDesign.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.ReportViewer.WebForms.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\EnvDTE.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.Build.Framework.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\stdole.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.VSHelp.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Shell.Interop.9.0.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.ProjectAggregator.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.ComponentModelHost.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Debugger.InteropA.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\EnvDTE80.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.Build.Tasks.Core.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Data.Services.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\VSLangProj.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Shell.Interop.11.0.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Data.Core.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Shell.Interop.10.0.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\VSLangProj80.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.ManagedInterfaces.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.WCFReference.Interop.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.11.0.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.GraphModel.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.MSXML.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.Build.Utilities.Core.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.10.0.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\VSLangProj2.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\de\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\es\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\fr\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\it\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ja\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ko\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\pt\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ru\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHS\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHT\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\de\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\fr\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\it\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ja\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ko\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\pt\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ru\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\de\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\es\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\fr\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\it\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ja\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ko\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\pt\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ru\Microsoft.ReportViewer.Winforms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\TaskAssistant.csprojResolveAssemblyReference.cache
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.ConfirmationForm.resources
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.FullTask_Report.resources
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.View.ProgramMainForm.resources
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.View.tasksCompletedProgressBar.resources
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.View.tasksDueProgressBar.resources
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.View.ViewResource.resources
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\TaskAssistant.csproj.GenerateResource.Cache
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\TaskAssistant.csproj.CoreCompileInputs.cache
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.exe.manifest
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.application
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Tasks.mdf
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Tasks_log.ldf
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.TasksDueIn7DaysReport.resources
+C:\Users\Steven\Desktop\TaskAssistant\TaskAssistant\obj\Debug\WindowsFormsApplication1.Reporting.TasksDueIn3DaysReport.resources

@@ -61,21 +61,36 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.WebDesign, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Winforms">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\SSIS\140\Extensions\BI\Microsoft.ReportViewer.Winforms.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -87,23 +102,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompletedTasks.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CompletedTasks.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ConfirmationForm.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewConnection.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NewConnection.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="OverdueTasks.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OverdueTasks.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,37 +112,56 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\CompletedTasksReportForm.cs">
+    <Compile Include="Reporting\TasksDueIn7DaysReport.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reporting\CompletedTasksReportForm.Designer.cs">
-      <DependentUpon>CompletedTasksReportForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reporting\OverdueTasksReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reporting\OverdueTasksReport.Designer.cs">
-      <DependentUpon>OverdueTasksReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Reporting\TasksDueIn3DaysReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reporting\TasksDueIn3DaysReport.Designer.cs">
-      <DependentUpon>TasksDueIn3DaysReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reporting\FullReportForm.cs">
+    <Compile Include="Reporting\FullTask_Report.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reporting\FullReportForm.Designer.cs">
-      <DependentUpon>FullReportForm.cs</DependentUpon>
+    <Compile Include="Reporting\FullTask_Report.Designer.cs">
+      <DependentUpon>FullTask_Report.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="SqlServerTypes\Utilities.cs" />
-    <Compile Include="TaskAssistantDataSet.Designer.cs">
+    <Compile Include="TasksDueIn3Days.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TaskAssistantDataSet.xsd</DependentUpon>
+      <DependentUpon>TasksDueIn3Days.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TasksDueIn7Days.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TasksDueIn7Days.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TasksInformation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TasksInformation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TasksTotal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TasksTotal.xsd</DependentUpon>
     </Compile>
     <Compile Include="View\AlertExclamationImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\addMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\SettingMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\reportMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\searchMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\removeMenu.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\InstructionalTextbox.cs">
@@ -219,6 +238,15 @@
     <Compile Include="View\menuButtonPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WindowsService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsService.Designer.cs">
+      <DependentUpon>WindowsService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsServiceInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,22 +260,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reporting\CompletedTasksReportForm.resx">
-      <DependentUpon>CompletedTasksReportForm.cs</DependentUpon>
+    <EmbeddedResource Include="Reporting\TasksDueIn7DaysReport.resx">
+      <DependentUpon>TasksDueIn7DaysReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reporting\OverdueTasksReport.resx">
-      <DependentUpon>OverdueTasksReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reporting\OverdueTasksReport.rdlc" />
-    <EmbeddedResource Include="Reporting\TasksDueIn3Days.rdlc" />
+    <EmbeddedResource Include="Reporting\TasksDueIn7Days.rdlc" />
     <EmbeddedResource Include="Reporting\TasksDueIn3DaysReport.resx">
       <DependentUpon>TasksDueIn3DaysReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reporting\FullReportForm.resx">
-      <DependentUpon>FullReportForm.cs</DependentUpon>
+    <EmbeddedResource Include="Reporting\FullTask_Report.rdlc" />
+    <EmbeddedResource Include="Reporting\FullTask_Report.resx">
+      <DependentUpon>FullTask_Report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reporting\FullTaskReport.rdlc" />
-    <EmbeddedResource Include="Reporting\CompletedTasksReport.rdlc" />
+    <EmbeddedResource Include="Reporting\TasksDueIn3Days.rdlc" />
     <EmbeddedResource Include="View\programMainForm.resx">
       <DependentUpon>programMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,55 +299,58 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="CompletedTasks.xsc">
-      <DependentUpon>CompletedTasks.xsd</DependentUpon>
-    </None>
-    <None Include="CompletedTasks.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CompletedTasks.Designer.cs</LastGenOutput>
+    <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="CompletedTasks.xss">
-      <DependentUpon>CompletedTasks.xsd</DependentUpon>
-    </None>
-    <None Include="NewConnection.xsc">
-      <DependentUpon>NewConnection.xsd</DependentUpon>
-    </None>
-    <None Include="NewConnection.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>NewConnection.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="NewConnection.xss">
-      <DependentUpon>NewConnection.xsd</DependentUpon>
-    </None>
-    <None Include="OverdueTasks.xsc">
-      <DependentUpon>OverdueTasks.xsd</DependentUpon>
-    </None>
-    <None Include="OverdueTasks.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>OverdueTasks.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="OverdueTasks.xss">
-      <DependentUpon>OverdueTasks.xsd</DependentUpon>
-    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Resources\Revised.png" />
-    <None Include="TaskAssistantDataSet.xsc">
-      <DependentUpon>TaskAssistantDataSet.xsd</DependentUpon>
+    <None Include="TasksDueIn3Days.xsc">
+      <DependentUpon>TasksDueIn3Days.xsd</DependentUpon>
     </None>
-    <None Include="TaskAssistantDataSet.xsd">
+    <None Include="TasksDueIn3Days.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TaskAssistantDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>TasksDueIn3Days.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="TaskAssistantDataSet.xss">
-      <DependentUpon>TaskAssistantDataSet.xsd</DependentUpon>
+    <None Include="TasksDueIn3Days.xss">
+      <DependentUpon>TasksDueIn3Days.xsd</DependentUpon>
+    </None>
+    <None Include="TasksDueIn7Days.xsc">
+      <DependentUpon>TasksDueIn7Days.xsd</DependentUpon>
+    </None>
+    <None Include="TasksDueIn7Days.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TasksDueIn7Days.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TasksDueIn7Days.xss">
+      <DependentUpon>TasksDueIn7Days.xsd</DependentUpon>
+    </None>
+    <None Include="TasksInformation.xsc">
+      <DependentUpon>TasksInformation.xsd</DependentUpon>
+    </None>
+    <None Include="TasksInformation.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TasksInformation.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TasksInformation.xss">
+      <DependentUpon>TasksInformation.xsd</DependentUpon>
+    </None>
+    <None Include="TasksTotal.xsc">
+      <DependentUpon>TasksTotal.xsd</DependentUpon>
+    </None>
+    <None Include="TasksTotal.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TasksTotal.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TasksTotal.xss">
+      <DependentUpon>TasksTotal.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -357,6 +384,13 @@
     </Content>
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tasks.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tasks_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Tasks.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

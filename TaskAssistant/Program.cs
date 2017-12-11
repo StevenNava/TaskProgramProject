@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.ServiceProcess;
 using System.Windows.Forms;
 using WindowsFormsApplication1.View;
 
@@ -24,11 +25,24 @@ namespace WindowsFormsApplication1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var homeScreen = new programMainForm("homeScreen");
+            var homeScreen = new ProgramMainForm("homeScreen");
             //create home screen for application
 
 
             Application.Run(homeScreen);
+
         }
-    }
+
+        public static void Start(string[] args)
+        {
+            using (WindowsService service = new WindowsService())
+            {
+                ServiceBase.Run(service);
+            }
+        }
+        public static void Stop()
+        {
+
+        }
+}
 }

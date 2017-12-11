@@ -7,12 +7,12 @@ namespace WindowsFormsApplication1.View
 {
     internal class statisticPanel : Panel
     {
-        private readonly string ConnectionString =
-            "Data Source=localhost; " +
+        private readonly string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename="+System.Environment.CurrentDirectory+"\\Tasks.mdf;Integrated Security=True";
+           /* "Data Source=localhost; " +
             "Initial Catalog=TaskAssistant; " +
             "user id=test; " +
             "password=test; " +
-            "connection timeout=30";
+            "connection timeout=30";*/
 
         private int completedTasks;
 

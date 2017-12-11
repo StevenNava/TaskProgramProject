@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskAssistant", "TaskAssistant\TaskAssistant.csproj", "{9E116EFB-197B-465F-9185-C71C987131C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests_TaskAssistant", "Tests_TaskAssistant\Tests_TaskAssistant.csproj", "{88EA635C-694C-43EE-98CB-C11E8DA04096}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{9E116EFB-197B-465F-9185-C71C987131C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E116EFB-197B-465F-9185-C71C987131C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E116EFB-197B-465F-9185-C71C987131C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88EA635C-694C-43EE-98CB-C11E8DA04096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88EA635C-694C-43EE-98CB-C11E8DA04096}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88EA635C-694C-43EE-98CB-C11E8DA04096}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88EA635C-694C-43EE-98CB-C11E8DA04096}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70B5AF14-A1F8-4C4D-A017-D8FEC953B7E8}
 	EndGlobalSection
 EndGlobal
